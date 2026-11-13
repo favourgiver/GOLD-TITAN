@@ -141,7 +141,7 @@ export const HOMEPAGE_COPY = {
 
   section5WhyGoldTitan: {
     overline: 'Why GOLD TITAN?',
-    heading: 'Why Consider GOLD TITAN?',
+    heading: 'Why GOLD TITAN?',
     intro:
       "We're bringing gold-trading automation and convenience together in one software solution.",
     items: [

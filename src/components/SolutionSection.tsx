@@ -10,18 +10,15 @@ export function SolutionSection() {
     <section
       id="solution"
       aria-labelledby="solution-heading"
-      className="relative border-t border-[#E7CF8B]/14 bg-[#070707] py-20 sm:py-24 lg:py-32"
+      className="relative border-t border-[#FFD000]/14 bg-[#070707] py-20 sm:py-24 lg:py-32"
     >
       <div className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
-        {/* Editorial Product Introduction */}
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-12">
+          {/* Left Editorial Copy (tiny section number/overline removed) */}
           <div className="lg:col-span-5">
-            <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-[#C9A24A]">
-              03 / {section3Solution.overline}
-            </p>
             <h2
               id="solution-heading"
-              className="mt-4 text-[1.95rem] sm:text-[2.5rem] lg:text-[2.85rem] font-semibold leading-[1.08] tracking-[-0.025em] text-[#F5F2EA]"
+              className="text-[1.95rem] sm:text-[2.5rem] lg:text-[2.85rem] font-semibold leading-[1.08] tracking-[-0.025em] text-[#F5F2EA]"
             >
               {section3Solution.heading}
             </h2>
@@ -32,37 +29,35 @@ export function SolutionSection() {
             </div>
           </div>
 
-          {/* Bespoke GOLD TITAN Execution Engine Mockup (strictly factual, zero fake P&L or live numbers) */}
+          {/* Illustrative Software Console */}
           <div className="lg:col-span-7">
             <div
               role="region"
               aria-label="Illustrative GOLD TITAN software interface"
-              className="rounded-3xl border border-[#E7CF8B]/20 bg-[#11100D] p-4 sm:p-6 shadow-[0_30px_90px_-25px_rgba(0,0,0,0.95)]"
+              className="rounded-3xl border border-[#FFD000]/22 bg-[#11100D] p-4 sm:p-6 shadow-[0_30px_90px_-25px_rgba(0,0,0,0.95)]"
             >
-              {/* Window Top Bar + Explicit Honest Illustration Label */}
-              <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#E7CF8B]/14 pb-4">
+              <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#FFD000]/14 pb-4">
                 <div className="flex items-center gap-2.5">
-                  <span className="h-2.5 w-2.5 rounded-full bg-[#C9A24A]" aria-hidden="true" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-[#FFD000]" aria-hidden="true" />
                   <span className="font-mono text-xs font-semibold tracking-[0.12em] text-[#F5F2EA]">
                     GOLD TITAN · EXECUTION CONSOLE
                   </span>
                 </div>
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-[#E7CF8B]/20 bg-[#1C1A16] px-3 py-1 font-mono text-[10.5px] tracking-[0.04em] text-[#E7CF8B]">
-                  <ShieldAlert className="h-3 w-3 text-[#C9A24A]" aria-hidden="true" />
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-[#FFD000]/24 bg-[#191811] px-3 py-1 font-mono text-[10.5px] tracking-[0.04em] text-[#FDE047]">
+                  <ShieldAlert className="h-3 w-3 text-[#FFD000]" aria-hidden="true" />
                   Illustrative interface - not live trading data
                 </span>
               </div>
 
-              {/* Interactive MT4 / MT5 Environment Selector */}
-              <div className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-[#E7CF8B]/12 bg-[#171511] p-3">
+              <div className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-[#FFD000]/14 bg-[#171511] p-3">
                 <div className="flex items-center gap-2">
-                  <Layers className="h-4 w-4 text-[#C9A24A]" aria-hidden="true" />
+                  <Layers className="h-4 w-4 text-[#FFD000]" aria-hidden="true" />
                   <span className="font-mono text-xs text-[#AAA49A]">PLATFORM ENVIRONMENT:</span>
                 </div>
                 <div
                   role="group"
                   aria-label="Preview supported platform version"
-                  className="inline-flex rounded-full border border-[#E7CF8B]/16 bg-[#0B0A08] p-1"
+                  className="inline-flex rounded-full border border-[#FFD000]/18 bg-[#0B0A08] p-1"
                 >
                   {(['MT4', 'MT5'] as const).map((platform) => {
                     const active = selectedPlatform === platform;
@@ -72,9 +67,9 @@ export function SolutionSection() {
                         type="button"
                         onClick={() => setSelectedPlatform(platform)}
                         aria-pressed={active}
-                        className={`min-h-[34px] rounded-full px-4 py-1 font-mono text-xs font-medium transition-colors ${
+                        className={`min-h-[34px] rounded-full px-4 py-1 font-mono text-xs font-medium transition-all ${
                           active
-                            ? 'bg-[#C9A24A] text-[#090806] font-semibold'
+                            ? 'bg-[#FFD000] text-[#070707] font-semibold shadow-[0_0_12px_rgba(255,208,0,0.35)]'
                             : 'text-[#AAA49A] hover:text-[#F5F2EA]'
                         }`}
                       >
@@ -85,10 +80,9 @@ export function SolutionSection() {
                 </div>
               </div>
 
-              {/* Abstract Programmed Strategy Schematic (No price/profit figures) */}
-              <div className="mt-4 rounded-2xl border border-[#E7CF8B]/12 bg-[#090908] p-4 sm:p-5 titan-grid-bg">
+              <div className="mt-4 rounded-2xl border border-[#FFD000]/14 bg-[#090908] p-4 sm:p-5 titan-grid-bg">
                 <div className="flex flex-wrap items-center justify-between gap-2 text-xs">
-                  <span className="font-mono font-semibold tracking-[0.1em] text-[#E7CF8B]">
+                  <span className="font-mono font-semibold tracking-[0.1em] text-[#FFD000]">
                     MARKET SCOPE · XAUUSD (GOLD)
                   </span>
                   <span className="font-mono text-[11px] text-[#AAA49A]">
@@ -111,32 +105,30 @@ export function SolutionSection() {
                     d="M10 132 C 68 126, 95 88, 145 96 C 195 104, 232 58, 286 72 C 340 86, 378 44, 436 56 C 494 68, 534 32, 590 38 L 590 165 L 10 165 Z"
                     fill="url(#consoleFill)"
                   />
-                  {/* Rule evaluation nodes (conceptual only, no prices) */}
-                  <circle cx="145" cy="96" r="4.5" fill="#090908" stroke="#E7CF8B" strokeWidth="2" />
-                  <circle cx="286" cy="72" r="4.5" fill="#090908" stroke="#C9A24A" strokeWidth="2" />
-                  <circle cx="436" cy="56" r="5" fill="#C9A24A" />
+                  <circle cx="145" cy="96" r="4.5" fill="#090908" stroke="#FDE047" strokeWidth="2" />
+                  <circle cx="286" cy="72" r="4.5" fill="#090908" stroke="#FFD000" strokeWidth="2" />
+                  <circle cx="436" cy="56" r="5" fill="#FFD000" />
                   <defs>
                     <linearGradient id="consoleWave" x1="10" y1="132" x2="590" y2="38" gradientUnits="userSpaceOnUse">
-                      <stop stopColor="#8E6B2E" />
-                      <stop offset="0.5" stopColor="#C9A24A" />
-                      <stop offset="1" stopColor="#E7CF8B" />
+                      <stop stopColor="#CA8A04" />
+                      <stop offset="0.5" stopColor="#FFD000" />
+                      <stop offset="1" stopColor="#FDE047" />
                     </linearGradient>
                     <linearGradient id="consoleFill" x1="300" y1="32" x2="300" y2="165" gradientUnits="userSpaceOnUse">
-                      <stop stopColor="#C9A24A" stopOpacity="0.16" />
+                      <stop stopColor="#FFD000" stopOpacity="0.16" />
                       <stop offset="1" stopColor="#090908" stopOpacity="0" />
                     </linearGradient>
                   </defs>
                 </svg>
 
-                <div className="mt-2 flex flex-wrap items-center justify-between gap-2 border-t border-[#E7CF8B]/10 pt-3 font-mono text-[11px] text-[#AAA49A]">
+                <div className="mt-2 flex flex-wrap items-center justify-between gap-2 border-t border-[#FFD000]/12 pt-3 font-mono text-[11px] text-[#AAA49A]">
                   <span>MODE: PROGRAMMED STRATEGY AUTOMATION</span>
-                  <span className="text-[#E7CF8B]">SETUP HANDLED · NO SEPARATE VPS</span>
+                  <span className="text-[#FFD000]">SETUP HANDLED · NO SEPARATE VPS</span>
                 </div>
               </div>
 
-              {/* Detached Specification Cards Grid */}
               <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
-                <div className="rounded-xl border border-[#E7CF8B]/14 bg-[#161410] p-3.5">
+                <div className="rounded-xl border border-[#FFD000]/14 bg-[#161410] p-3.5">
                   <div className="font-mono text-[10px] tracking-[0.12em] text-[#AAA49A]">
                     ACCOUNT TYPE
                   </div>
@@ -146,15 +138,15 @@ export function SolutionSection() {
                   <div className="mt-0.5 text-xs text-[#AAA49A]">Demo not supported</div>
                 </div>
 
-                <div className="rounded-xl border border-[#E7CF8B]/14 bg-[#161410] p-3.5">
+                <div className="rounded-xl border border-[#FFD000]/14 bg-[#161410] p-3.5">
                   <div className="font-mono text-[10px] tracking-[0.12em] text-[#AAA49A]">
                     MINIMUM BALANCE
                   </div>
-                  <div className="mt-1 text-sm font-semibold text-[#E7CF8B]">$250 USD</div>
+                  <div className="mt-1 text-sm font-semibold text-[#FFD000]">$250 USD</div>
                   <div className="mt-0.5 text-xs text-[#AAA49A]">Live-account requirement</div>
                 </div>
 
-                <div className="rounded-xl border border-[#E7CF8B]/14 bg-[#161410] p-3.5">
+                <div className="rounded-xl border border-[#FFD000]/14 bg-[#161410] p-3.5">
                   <div className="font-mono text-[10px] tracking-[0.12em] text-[#AAA49A]">
                     SUBSCRIPTION
                   </div>
@@ -169,22 +161,22 @@ export function SolutionSection() {
         {/* WHAT MAKES GOLD TITAN APPEALING? */}
         <div className="mt-16 lg:mt-20">
           <div className="flex items-center gap-4">
-            <Cpu className="h-4 w-4 text-[#C9A24A] shrink-0" aria-hidden="true" />
-            <h3 className="font-mono text-xs sm:text-[13px] font-semibold tracking-[0.16em] text-[#E7CF8B]">
+            <Cpu className="h-4 w-4 text-[#FFD000] shrink-0" aria-hidden="true" />
+            <h3 className="font-mono text-xs sm:text-[13px] font-semibold tracking-[0.16em] text-[#FFD000]">
               {section3Solution.appealingHeading}
             </h3>
-            <div className="h-px flex-1 bg-[#E7CF8B]/14" aria-hidden="true" />
+            <div className="h-px flex-1 bg-[#FFD000]/16" aria-hidden="true" />
           </div>
 
           <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {section3Solution.appealingItems.map((item) => (
               <div
                 key={item.lead}
-                className="flex flex-col justify-between rounded-2xl border border-[#E7CF8B]/14 bg-[#111111] p-5 transition-colors hover:border-[#C9A24A]/35 hover:bg-[#151410]"
+                className="flex flex-col justify-between rounded-2xl border border-[#FFD000]/14 bg-[#111111] p-5 transition-colors hover:border-[#FFD000]/40 hover:bg-[#151410]"
               >
                 <div>
                   <CheckCircle2
-                    className="h-4 w-4 text-[#C9A24A]"
+                    className="h-4 w-4 text-[#FFD000]"
                     strokeWidth={1.9}
                     aria-hidden="true"
                   />
@@ -199,8 +191,7 @@ export function SolutionSection() {
             ))}
           </div>
 
-          {/* Section 3 CTA + Supporting Line */}
-          <div className="mt-10 flex flex-col sm:flex-row sm:items-center justify-between gap-5 rounded-2xl border border-[#E7CF8B]/14 bg-[#100F0C] px-6 py-5 sm:px-8">
+          <div className="mt-10 flex flex-col sm:flex-row sm:items-center justify-between gap-5 rounded-2xl border border-[#FFD000]/16 bg-[#100F0C] px-6 py-5 sm:px-8">
             <p className="text-[15.5px] sm:text-[16px] text-[#D6D0C4]">
               {section3Solution.subCtaNote}
             </p>

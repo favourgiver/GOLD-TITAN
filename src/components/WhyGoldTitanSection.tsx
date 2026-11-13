@@ -36,17 +36,14 @@ export function WhyGoldTitanSection() {
     <section
       id="why-gold-titan"
       aria-labelledby="why-gold-titan-heading"
-      className="relative scroll-mt-20 border-t border-[#E7CF8B]/14 bg-[#070707] py-20 sm:py-24 lg:py-32"
+      className="relative scroll-mt-20 border-t border-[#FFD000]/14 bg-[#070707] py-20 sm:py-24 lg:py-32"
     >
       <div className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
           <div className="max-w-[640px]">
-            <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-[#C9A24A]">
-              05 / {section5WhyGoldTitan.overline}
-            </p>
             <h2
               id="why-gold-titan-heading"
-              className="mt-4 text-[1.95rem] sm:text-[2.5rem] lg:text-[2.85rem] font-semibold leading-[1.08] tracking-[-0.025em] text-[#F5F2EA]"
+              className="text-[1.95rem] sm:text-[2.5rem] lg:text-[2.85rem] font-semibold leading-[1.08] tracking-[-0.025em] text-[#F5F2EA]"
             >
               {section5WhyGoldTitan.heading}
             </h2>
@@ -56,7 +53,6 @@ export function WhyGoldTitanSection() {
           </p>
         </div>
 
-        {/* Asymmetric Editorial Bento Composition (avoids 7 identical generic cards) */}
         <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-12 lg:gap-5">
           {section5WhyGoldTitan.items.map((item, idx) => {
             const Icon = FEATURE_ICONS[idx];
@@ -70,16 +66,13 @@ export function WhyGoldTitanSection() {
                   idx === 6 ? 'sm:col-span-2' : ''
                 } group relative flex flex-col justify-between rounded-2xl border p-6 sm:p-7 transition-colors ${
                   isHighlighted
-                    ? 'border-[#C9A24A]/28 bg-gradient-to-br from-[#191712] to-[#100F0C]'
-                    : 'border-[#E7CF8B]/14 bg-[#111111] hover:border-[#E7CF8B]/28'
+                    ? 'border-[#FFD000]/30 bg-gradient-to-br from-[#191710] to-[#100F0C]'
+                    : 'border-[#FFD000]/14 bg-[#111111] hover:border-[#FFD000]/32'
                 }`}
               >
                 <div className="flex items-center justify-between gap-4">
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[#E7CF8B]/16 bg-[#0B0A08] text-[#C9A24A]">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[#FFD000]/20 bg-[#0B0A08] text-[#FFD000]">
                     <Icon className="h-4 w-4 stroke-[1.75]" aria-hidden="true" />
-                  </span>
-                  <span className="font-mono text-xs tracking-[0.14em] text-[#8E6B2E]">
-                    0{idx + 1}
                   </span>
                 </div>
 
@@ -96,8 +89,7 @@ export function WhyGoldTitanSection() {
           })}
         </div>
 
-        {/* Verbatim Closing Statement */}
-        <div className="mt-10 rounded-2xl border border-[#E7CF8B]/18 bg-[#12110D] px-6 py-6 sm:px-9 text-center">
+        <div className="mt-10 rounded-2xl border border-[#FFD000]/20 bg-[#12110D] px-6 py-6 sm:px-9 text-center">
           <p className="text-[16.5px] sm:text-[18px] font-medium leading-[1.55] text-[#F5F2EA]">
             {section5WhyGoldTitan.closing}
           </p>

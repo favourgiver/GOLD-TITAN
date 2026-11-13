@@ -32,17 +32,14 @@ export function FaqSection() {
     <section
       id="faqs"
       aria-labelledby="faqs-heading"
-      className="relative scroll-mt-20 border-t border-[#E7CF8B]/14 bg-[#0B0A08] py-20 sm:py-24 lg:py-32"
+      className="relative scroll-mt-20 border-t border-[#FFD000]/14 bg-[#070707] py-20 sm:py-24 lg:py-32"
     >
       <div className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
           <div>
-            <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-[#C9A24A]">
-              08 / {section8Faqs.overline}
-            </p>
             <h2
               id="faqs-heading"
-              className="mt-4 text-[1.95rem] sm:text-[2.5rem] lg:text-[2.85rem] font-semibold leading-[1.08] tracking-[-0.025em] text-[#F5F2EA]"
+              className="text-[1.95rem] sm:text-[2.5rem] lg:text-[2.85rem] font-semibold leading-[1.08] tracking-[-0.025em] text-[#F5F2EA]"
             >
               {section8Faqs.heading}
             </h2>
@@ -51,13 +48,13 @@ export function FaqSection() {
           <button
             type="button"
             onClick={handleToggleAll}
-            className="self-start sm:self-auto min-h-[42px] rounded-full border border-[#E7CF8B]/20 bg-[#12110E] px-4 py-2 font-mono text-xs tracking-[0.08em] text-[#E7CF8B] transition-colors hover:border-[#C9A24A]"
+            className="btn-outline-glow self-start sm:self-auto min-h-[42px] rounded-full border border-[#FFD000]/32 bg-[#12110C] px-4 py-2 font-mono text-xs tracking-[0.08em] text-[#FFD000] hover:border-[#FFD000]"
           >
             {allExpanded ? 'COLLAPSE ALL' : 'EXPAND ALL (12)'}
           </button>
         </div>
 
-        <div className="mt-12 divide-y divide-[#E7CF8B]/14 rounded-3xl border border-[#E7CF8B]/16 bg-[#111111]">
+        <div className="mt-12 divide-y divide-[#FFD000]/14 rounded-3xl border border-[#FFD000]/16 bg-[#111111]">
           {section8Faqs.items.map((faq, idx) => {
             const isOpen = openIndices.has(idx);
             const panelId = `faq-answer-${idx + 1}`;
@@ -72,15 +69,15 @@ export function FaqSection() {
                     aria-expanded={isOpen}
                     aria-controls={panelId}
                     onClick={() => toggleIndex(idx)}
-                    className="flex min-h-[64px] w-full items-center justify-between gap-4 py-5 text-left text-[16.5px] sm:text-[18.5px] font-semibold leading-snug tracking-[-0.01em] text-[#F5F2EA] transition-colors hover:text-[#E7CF8B]"
+                    className="flex min-h-[64px] w-full items-center justify-between gap-4 py-5 text-left text-[16.5px] sm:text-[18.5px] font-semibold leading-snug tracking-[-0.01em] text-[#F5F2EA] transition-colors hover:text-[#FFD000]"
                   >
                     <span>{faq.question}</span>
                     <span
                       aria-hidden="true"
                       className={`inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition-colors ${
                         isOpen
-                          ? 'border-[#C9A24A] bg-[#1C1A16] text-[#E7CF8B]'
-                          : 'border-[#E7CF8B]/20 bg-[#0B0A08] text-[#AAA49A]'
+                          ? 'border-[#FFD000] bg-[#191810] text-[#FFD000] shadow-[0_0_10px_rgba(255,208,0,0.25)]'
+                          : 'border-[#FFD000]/22 bg-[#0B0A08] text-[#AAA49A]'
                       }`}
                     >
                       {isOpen ? <Minus className="h-4 w-4" /> : <Plus className="h-4 w-4" />}

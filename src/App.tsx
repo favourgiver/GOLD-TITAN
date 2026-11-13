@@ -8,6 +8,7 @@ import { HowItWorksSection } from './components/HowItWorksSection';
 import { WhyGoldTitanSection } from './components/WhyGoldTitanSection';
 import { TechnologySection } from './components/TechnologySection';
 import { PricingSection, type PlanTermMonths } from './components/PricingSection';
+import { LaunchSlotsSection } from './components/LaunchSlotsSection';
 import { FaqSection } from './components/FaqSection';
 import { FinalCtaAndFooter } from './components/FinalCtaAndFooter';
 import { SubscriptionModal } from './components/SubscriptionModal';
@@ -25,10 +26,9 @@ export function App() {
 
   return (
     <div className="min-h-screen bg-[#070707] text-[#F5F2EA]">
-      {/* Skip link for keyboard accessibility */}
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-full focus:bg-[#C9A24A] focus:px-5 focus:py-2.5 focus:text-xs focus:font-bold focus:text-[#070707]"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-full focus:bg-[#FFD000] focus:px-5 focus:py-2.5 focus:text-xs focus:font-bold focus:text-[#070707]"
       >
         Skip to main content
       </a>
@@ -44,6 +44,10 @@ export function App() {
         <WhyGoldTitanSection />
         <TechnologySection />
         <PricingSection
+          allocation={allocation}
+          onOpenSubscribeModal={handleOpenSubscribeModal}
+        />
+        <LaunchSlotsSection
           allocation={allocation}
           onOpenSubscribeModal={handleOpenSubscribeModal}
         />

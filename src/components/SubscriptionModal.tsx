@@ -112,18 +112,16 @@ export function SubscriptionModal({
       aria-labelledby="subscription-modal-title"
       className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
     >
-      {/* Backdrop */}
       <div
         aria-hidden="true"
         onClick={onClose}
         className="fixed inset-0 bg-black/80 backdrop-blur-sm"
       />
 
-      {/* Dialog Surface */}
-      <div className="relative z-10 max-h-[90vh] w-full max-w-[600px] overflow-y-auto rounded-3xl border border-[#C9A24A]/35 bg-[#100F0C] p-6 sm:p-8 shadow-2xl">
-        <div className="flex items-start justify-between gap-4 border-b border-[#E7CF8B]/14 pb-4">
+      <div className="relative z-10 max-h-[90vh] w-full max-w-[600px] overflow-y-auto rounded-3xl border border-[#FFD000]/35 bg-[#100F0C] p-6 sm:p-8 shadow-2xl">
+        <div className="flex items-start justify-between gap-4 border-b border-[#FFD000]/14 pb-4">
           <div>
-            <p className="font-mono text-[11px] font-semibold tracking-[0.15em] text-[#C9A24A]">
+            <p className="font-mono text-[11px] font-semibold tracking-[0.15em] text-[#FFD000]">
               GOLD TITAN SUBSCRIPTION
             </p>
             <h2
@@ -138,13 +136,12 @@ export function SubscriptionModal({
             type="button"
             onClick={onClose}
             aria-label="Close subscription dialog"
-            className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#E7CF8B]/20 bg-[#181612] text-[#F5F2EA] hover:border-[#C9A24A]"
+            className="btn-outline-glow inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#FFD000]/28 bg-[#181610] text-[#F5F2EA] hover:border-[#FFD000]"
           >
             <X className="h-4 w-4" aria-hidden="true" />
           </button>
         </div>
 
-        {/* Platform Selection */}
         <div className="mt-5">
           <span className="block font-mono text-[11px] font-semibold tracking-[0.14em] text-[#AAA49A]">
             1. CHOOSE YOUR TRADING PLATFORM
@@ -158,16 +155,16 @@ export function SubscriptionModal({
                   type="button"
                   onClick={() => setPlatform(plat)}
                   aria-pressed={selected}
-                  className={`min-h-[48px] rounded-xl border px-4 py-3 text-left transition-colors ${
+                  className={`min-h-[48px] rounded-xl border px-4 py-3 text-left transition-all ${
                     selected
-                      ? 'border-[#C9A24A] bg-[#1C1A16] text-[#F5F2EA]'
-                      : 'border-[#E7CF8B]/14 bg-[#0B0A08] text-[#AAA49A] hover:text-[#F5F2EA]'
+                      ? 'border-[#FFD000] bg-[#191810] text-[#F5F2EA] shadow-[0_0_14px_rgba(255,208,0,0.18)]'
+                      : 'border-[#FFD000]/14 bg-[#0B0A08] text-[#AAA49A] hover:text-[#F5F2EA]'
                   }`}
                 >
                   <span className="block text-sm font-semibold">
                     MetaTrader {plat === 'MT4' ? '4' : '5'}
                   </span>
-                  <span className="block font-mono text-[11px] text-[#C9A24A]">
+                  <span className="block font-mono text-[11px] text-[#FFD000]">
                     Compatible {plat} version
                   </span>
                 </button>
@@ -176,7 +173,6 @@ export function SubscriptionModal({
           </div>
         </div>
 
-        {/* Subscription Term Selection */}
         <div className="mt-5">
           <span className="block font-mono text-[11px] font-semibold tracking-[0.14em] text-[#AAA49A]">
             2. SELECT SUBSCRIPTION TERM
@@ -190,15 +186,15 @@ export function SubscriptionModal({
                   type="button"
                   onClick={() => setSelectedTerm(opt.termMonths)}
                   aria-pressed={active}
-                  className={`rounded-xl border p-3.5 text-left transition-colors ${
+                  className={`rounded-xl border p-3.5 text-left transition-all ${
                     active
-                      ? 'border-[#C9A24A] bg-[#1C1A16]'
-                      : 'border-[#E7CF8B]/14 bg-[#0B0A08] hover:border-[#E7CF8B]/30'
+                      ? 'border-[#FFD000] bg-[#191810] shadow-[0_0_14px_rgba(255,208,0,0.18)]'
+                      : 'border-[#FFD000]/14 bg-[#0B0A08] hover:border-[#FFD000]/35'
                   }`}
                 >
                   <div className="flex items-baseline justify-between gap-2">
                     <span className="text-sm font-semibold text-[#F5F2EA]">{opt.label}</span>
-                    <span className="font-mono text-sm font-bold text-[#E7CF8B]">
+                    <span className="font-mono text-sm font-bold text-[#FFD000]">
                       {opt.priceLabel}
                     </span>
                   </div>
@@ -209,27 +205,25 @@ export function SubscriptionModal({
           </div>
         </div>
 
-        {/* Confirmed Account Requirements Reminder */}
-        <div className="mt-5 rounded-2xl border border-[#E7CF8B]/14 bg-[#0B0A08] p-4">
-          <p className="font-mono text-[10.5px] font-semibold tracking-[0.14em] text-[#E7CF8B]">
+        <div className="mt-5 rounded-2xl border border-[#FFD000]/14 bg-[#0B0A08] p-4">
+          <p className="font-mono text-[10.5px] font-semibold tracking-[0.14em] text-[#FFD000]">
             {HOMEPAGE_COPY.section4HowItWorks.requirementsHeading}
           </p>
           <ul className="mt-2.5 space-y-1.5 text-xs text-[#CFC9BD]">
             {HOMEPAGE_COPY.section4HowItWorks.requirements.map((req) => (
               <li key={req} className="flex items-start gap-2">
-                <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#C9A24A]" aria-hidden="true" />
+                <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#FFD000]" aria-hidden="true" />
                 <span>{req}</span>
               </li>
             ))}
           </ul>
         </div>
 
-        {/* Checkout Action or Explicit Unconfigured Notice */}
         {canInitiateLiveCheckout ? (
           <div className="mt-6 space-y-3">
             {checkoutError && (
-              <div className="flex items-start gap-2 rounded-xl border border-[#C9A24A]/40 bg-[#1A150E] p-3 text-xs text-[#E7CF8B]">
-                <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-[#C9A24A]" aria-hidden="true" />
+              <div className="flex items-start gap-2 rounded-xl border border-[#FFD000]/40 bg-[#1A180E] p-3 text-xs text-[#FFD000]">
+                <AlertCircle className="mt-0.5 h-4 w-4 shrink-0 text-[#FFD000]" aria-hidden="true" />
                 <span>{checkoutError}</span>
               </div>
             )}
@@ -244,11 +238,11 @@ export function SubscriptionModal({
             </button>
           </div>
         ) : (
-          <div className="mt-6 rounded-2xl border border-[#C9A24A]/35 bg-[#191610] p-4">
+          <div className="mt-6 rounded-2xl border border-[#FFD000]/35 bg-[#18160E] p-4">
             <div className="flex items-start gap-3">
-              <ShieldAlert className="mt-0.5 h-5 w-5 shrink-0 text-[#C9A24A]" aria-hidden="true" />
+              <ShieldAlert className="mt-0.5 h-5 w-5 shrink-0 text-[#FFD000]" aria-hidden="true" />
               <div className="space-y-1.5 text-xs leading-relaxed text-[#E5E0D5]">
-                <p className="font-semibold text-[#E7CF8B]">
+                <p className="font-semibold text-[#FFD000]">
                   Payment Provider Integration Pending
                 </p>
                 <p className="text-[#B8B2A7]">

@@ -7,41 +7,38 @@ export function HeaderNav() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>('');
+  const [hoveredHref, setHoveredHref] = useState<string | null>(null);
 
   useEffect(() => {
-    const onScroll = () => {
+    const navIds = HOMEPAGE_COPY.nav.links.map((l) => l.href.slice(1));
+
+    const updateScrollState = () => {
       setScrolled(window.scrollY > 24);
-    };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
-  useEffect(() => {
-    const sectionIds = ['how-it-works', 'why-gold-titan', 'technology', 'pricing', 'faqs'];
-    const elements = sectionIds
-      .map((id) => document.getElementById(id))
-      .filter((el): el is HTMLElement => Boolean(el));
+      // Reference line roughly 30% down the viewport (below sticky header)
+      const triggerY = Math.min(220, Math.max(120, window.innerHeight * 0.3));
+      let matched = '';
 
-    if (elements.length === 0) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-        if (visible[0]?.target?.id) {
-          setActiveSection(`#${visible[0].target.id}`);
+      for (const id of navIds) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= triggerY && rect.bottom > triggerY) {
+          matched = `#${id}`;
+          break;
         }
-      },
-      {
-        rootMargin: '-25% 0px -55% 0px',
-        threshold: [0.1, 0.3, 0.6],
       }
-    );
 
-    elements.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+      setActiveSection(matched);
+    };
+
+    updateScrollState();
+    window.addEventListener('scroll', updateScrollState, { passive: true });
+    window.addEventListener('resize', updateScrollState, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', updateScrollState);
+      window.removeEventListener('resize', updateScrollState);
+    };
   }, []);
 
   useEffect(() => {
@@ -59,11 +56,11 @@ export function HeaderNav() {
     <header
       className={`sticky top-0 z-40 transition-all duration-300 ${
         scrolled || mobileOpen
-          ? 'border-b border-[#E7CF8B]/15 bg-[#070707]/90 backdrop-blur-md'
-          : 'border-b border-transparent bg-[#070707]/65 backdrop-blur-sm'
+          ? 'border-b border-[#FFD000]/18 bg-[#070707]/92 backdrop-blur-md'
+          : 'border-b border-transparent bg-[#070707]/70 backdrop-blur-sm'
       }`}
     >
-      <div className="mx-auto flex h-[72px] max-w-[1240px] items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-[74px] max-w-[1240px] items-center justify-between px-4 sm:px-6 lg:px-8">
         <a
           href="#top"
           className="rounded-lg py-1 pr-2 focus-visible:outline-2"
@@ -72,25 +69,37 @@ export function HeaderNav() {
           <BrandMark />
         </a>
 
-        {/* Desktop navigation */}
-        <nav aria-label="Primary" className="hidden lg:flex items-center gap-1">
+        {/* Desktop navigation:
+            - Active section is highlighted when scrolled into view
+            - Exclusive single underline appears ONLY under the currently hovered link */}
+        <nav
+          aria-label="Primary"
+          onMouseLeave={() => setHoveredHref(null)}
+          className="hidden lg:flex items-center gap-1.5"
+        >
           {HOMEPAGE_COPY.nav.links.map((item) => {
             const isActive = activeSection === item.href;
+            const isHovered = hoveredHref === item.href;
+
             return (
               <a
                 key={item.href}
                 href={item.href}
-                className={`relative rounded-full px-4 py-2 text-[14px] font-medium transition-colors ${
+                onMouseEnter={() => setHoveredHref(item.href)}
+                onFocus={() => setHoveredHref(item.href)}
+                onBlur={() => setHoveredHref(null)}
+                aria-current={isActive ? 'location' : undefined}
+                className={`relative rounded-full px-4 py-2 text-[14px] font-medium transition-all duration-200 ${
                   isActive
-                    ? 'text-[#E7CF8B] bg-[#1C1A16]/90'
+                    ? 'bg-[#FFD000]/15 text-[#FFD000] font-semibold shadow-[0_0_14px_rgba(255,208,0,0.18)]'
                     : 'text-[#AAA49A] hover:text-[#F5F2EA]'
                 }`}
               >
                 {item.label}
-                {isActive && (
+                {isHovered && (
                   <span
                     aria-hidden="true"
-                    className="absolute inset-x-4 -bottom-[1px] h-[1.5px] bg-gradient-to-r from-transparent via-[#C9A24A] to-transparent"
+                    className="pointer-events-none absolute left-3.5 right-3.5 -bottom-[2px] h-[2px] rounded-full bg-[#FFD000] shadow-[0_0_8px_rgba(255,208,0,0.75)]"
                   />
                 )}
               </a>
@@ -115,10 +124,10 @@ export function HeaderNav() {
           aria-expanded={mobileOpen}
           aria-controls="mobile-navigation-panel"
           aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#E7CF8B]/20 bg-[#111111] text-[#F5F2EA] transition-colors hover:border-[#C9A24A]/50 lg:hidden"
+          className="btn-outline-glow inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#FFD000]/28 bg-[#111111] text-[#F5F2EA] lg:hidden"
         >
           {mobileOpen ? (
-            <X className="h-5 w-5 text-[#E7CF8B]" aria-hidden="true" />
+            <X className="h-5 w-5 text-[#FFD000]" aria-hidden="true" />
           ) : (
             <Menu className="h-5 w-5" aria-hidden="true" />
           )}
@@ -130,7 +139,7 @@ export function HeaderNav() {
         <nav
           id="mobile-navigation-panel"
           aria-label="Mobile Primary"
-          className="border-t border-[#E7CF8B]/15 bg-[#090909] px-4 pt-3 pb-6 lg:hidden"
+          className="border-t border-[#FFD000]/18 bg-[#090909] px-4 pt-3 pb-6 lg:hidden"
         >
           <ul className="flex flex-col gap-1">
             {HOMEPAGE_COPY.nav.links.map((item) => {
@@ -142,12 +151,12 @@ export function HeaderNav() {
                     onClick={() => setMobileOpen(false)}
                     className={`flex min-h-[46px] items-center justify-between rounded-xl px-4 py-3 text-[15px] font-medium transition-colors ${
                       isActive
-                        ? 'bg-[#1C1A16] text-[#E7CF8B]'
+                        ? 'bg-[#FFD000]/15 text-[#FFD000] font-semibold'
                         : 'text-[#F5F2EA] hover:bg-[#141414]'
                     }`}
                   >
                     <span>{item.label}</span>
-                    <span className="font-mono text-xs text-[#8E6B2E]" aria-hidden="true">
+                    <span className="font-mono text-xs text-[#FFD000]" aria-hidden="true">
                       →
                     </span>
                   </a>
@@ -155,7 +164,7 @@ export function HeaderNav() {
               );
             })}
           </ul>
-          <div className="mt-4 pt-4 border-t border-[#E7CF8B]/12">
+          <div className="mt-4 pt-4 border-t border-[#FFD000]/14">
             <a
               href="#pricing"
               onClick={() => setMobileOpen(false)}

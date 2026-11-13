@@ -30,37 +30,35 @@ css = css.replace(/url\((['"]?)(?:\.\/|\/assets\/)?([^)'"]+\.woff2)\1\)/g, (matc
 
 // Embed WebP studio assets as data URIs so standalone HTML works from any host or file://
 const heroWebpB64 = fs
-  .readFileSync(path.join(rootDir, 'public/images/titan-core-hero.webp'))
+  .readFileSync(path.join(rootDir, 'public/images/titan-hero-box.webp'))
+  .toString('base64');
+const logoWebpB64 = fs
+  .readFileSync(path.join(rootDir, 'public/images/titan-screaming-logo.webp'))
   .toString('base64');
 const sealWebpB64 = fs
   .readFileSync(path.join(rootDir, 'public/images/titan-launch-seal.webp'))
   .toString('base64');
-const faviconB64 = fs
-  .readFileSync(path.join(rootDir, 'public/favicon.svg'))
+const faviconPngB64 = fs
+  .readFileSync(path.join(rootDir, 'public/favicon.png'))
   .toString('base64');
 
 const heroDataUri = `data:image/webp;base64,${heroWebpB64}`;
+const logoDataUri = `data:image/webp;base64,${logoWebpB64}`;
 const sealDataUri = `data:image/webp;base64,${sealWebpB64}`;
 
-// Replace relative/base-prefixed image references in compiled bundle
-js = js
-  .replace(/[A-Za-z0-9_$."'/]*images\/titan-core-hero\.webp/g, (m) => {
-    // Keep valid JS string concatenation or literal replacement
-    if (m.startsWith('"') || m.startsWith("'")) return `${m[0]}${heroDataUri}`;
-    return heroDataUri;
-  });
-
-// Safer exact string literal replacement for Vite's compiled `${BASE_URL}images/...`
-// In Vite build with base: './', `import.meta.env.BASE_URL` compiles to `"./"`,
-// so `${import.meta.env.BASE_URL}images/titan-core-hero.webp` becomes `"./images/titan-core-hero.webp"` or `"./" + "images/..."`.
-js = fs.readFileSync(path.join(assetsDir, jsFile), 'utf8');
 const replacements = [
-  ['./images/titan-core-hero.webp', heroDataUri],
-  ['./images/titan-core-hero.png', heroDataUri],
-  ['/images/titan-core-hero.webp', heroDataUri],
-  ['/images/titan-core-hero.png', heroDataUri],
-  ['images/titan-core-hero.webp', heroDataUri],
-  ['images/titan-core-hero.png', heroDataUri],
+  ['./images/titan-hero-box.webp', heroDataUri],
+  ['./images/titan-hero-box.png', heroDataUri],
+  ['/images/titan-hero-box.webp', heroDataUri],
+  ['/images/titan-hero-box.png', heroDataUri],
+  ['images/titan-hero-box.webp', heroDataUri],
+  ['images/titan-hero-box.png', heroDataUri],
+  ['./images/titan-screaming-logo.webp', logoDataUri],
+  ['./images/titan-screaming-logo.png', logoDataUri],
+  ['/images/titan-screaming-logo.webp', logoDataUri],
+  ['/images/titan-screaming-logo.png', logoDataUri],
+  ['images/titan-screaming-logo.webp', logoDataUri],
+  ['images/titan-screaming-logo.png', logoDataUri],
   ['./images/titan-launch-seal.webp', sealDataUri],
   ['./images/titan-launch-seal.png', sealDataUri],
   ['/images/titan-launch-seal.webp', sealDataUri],
@@ -75,10 +73,8 @@ for (const [target, uri] of replacements) {
   js = js.split(`\`${target}\``).join(`\`${uri}\``);
 }
 
-// Also handle `"./"+` or `"./" + ` concatenation if emitted
 js = js.replace(/"\.\/"\s*\+\s*"data:image\/webp;base64,/g, '"data:image/webp;base64,');
 
-// Escape closing script tags inside JS string literals
 const safeJs = js.replace(/<\/script/gi, '<\\/script');
 
 const html = `<!doctype html>
@@ -86,7 +82,7 @@ const html = `<!doctype html>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,${faviconB64}" />
+    <link rel="icon" type="image/png" href="data:image/png;base64,${faviconPngB64}" />
     <title>GOLD TITAN — Gold Trading. Automated. Simplified.</title>
     <meta
       name="description"
@@ -95,7 +91,7 @@ const html = `<!doctype html>
     <meta name="theme-color" content="#070707" />
     <style>${css}</style>
   </head>
-  <body class="bg-[#070707] text-[#F5F2EA] antialiased selection:bg-[#C9A24A]/30 selection:text-[#F5F2EA]">
+  <body class="bg-[#070707] text-[#F5F2EA] antialiased selection:bg-[#FFD000]/30 selection:text-[#F5F2EA]">
     <div id="root"></div>
     <script>(function(){"use strict";${safeJs}})();</script>
   </body>

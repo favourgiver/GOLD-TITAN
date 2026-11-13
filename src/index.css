@@ -12,10 +12,10 @@
   --color-obsidian-deep: #090909;
   --color-graphite: #111111;
   --color-graphite-elevated: #151515;
-  --color-panel-warm: #1c1a16;
-  --color-gold: #c9a24a;
-  --color-champagne: #e7cf8b;
-  --color-antique-gold: #8e6b2e;
+  --color-panel-warm: #161510;
+  --color-gold: #ffd000;
+  --color-champagne: #fde047;
+  --color-antique-gold: #ca8a04;
   --color-warm-white: #f5f2ea;
   --color-stone: #aaa49a;
 }
@@ -38,31 +38,40 @@
   }
 
   :focus-visible {
-    outline: 2px solid #e7cf8b;
+    outline: 2px solid #ffd000;
     outline-offset: 3px;
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
+/* Continuous infinite announcement bar marquee */
+@keyframes titan-marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
   }
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+  100% {
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
-/* Brushed metallic gold primary CTA treatment — satin anodised sheen, never glossy cartoon bevels */
+.titan-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: titan-marquee 24s linear infinite;
+  will-change: transform;
+}
+
+.titan-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Vibrant yellow primary CTA with restrained, tasteful soft glow */
 .btn-gold-primary {
-  background: linear-gradient(135deg, #dfbe6f 0%, #c9a24a 52%, #ab8332 100%);
-  color: #090806;
+  background: linear-gradient(135deg, #ffe44d 0%, #ffd000 55%, #f5be00 100%);
+  color: #070707;
   box-shadow:
-    inset 0 1px 0 rgba(255, 246, 218, 0.45),
-    0 10px 28px -10px rgba(201, 162, 74, 0.35);
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    0 0 18px rgba(255, 208, 0, 0.34),
+    0 4px 18px -4px rgba(255, 208, 0, 0.28);
   transition:
     transform 180ms ease,
     box-shadow 180ms ease,
@@ -70,28 +79,43 @@
 }
 
 .btn-gold-primary:hover {
-  filter: brightness(1.06);
+  filter: brightness(1.05);
   box-shadow:
-    inset 0 1px 0 rgba(255, 246, 218, 0.6),
-    0 14px 34px -8px rgba(201, 162, 74, 0.48);
+    inset 0 1px 0 rgba(255, 255, 255, 0.65),
+    0 0 24px rgba(255, 208, 0, 0.48),
+    0 6px 24px -4px rgba(255, 208, 0, 0.36);
 }
 
 .btn-gold-primary:active {
   transform: translateY(1px);
 }
 
-/* Subtle dark metallic card border */
+/* Subtle yellow glow for secondary / outline buttons */
+.btn-outline-glow {
+  box-shadow: 0 0 14px rgba(255, 208, 0, 0.17);
+  transition:
+    box-shadow 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+.btn-outline-glow:hover {
+  box-shadow: 0 0 20px rgba(255, 208, 0, 0.3);
+}
+
+/* Subtle dark card border with yellow tint */
 .gold-hairline {
-  border-color: rgba(231, 207, 139, 0.15);
+  border-color: rgba(253, 224, 71, 0.15);
 }
 
 .gold-hairline-strong {
-  border-color: rgba(231, 207, 139, 0.3);
+  border-color: rgba(255, 208, 0, 0.32);
 }
 
 /* Architectural fine grid texture for technical surfaces */
 .titan-grid-bg {
-  background-image: linear-gradient(to right, rgba(231, 207, 139, 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(231, 207, 139, 0.035) 1px, transparent 1px);
+  background-image: linear-gradient(to right, rgba(253, 224, 71, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(253, 224, 71, 0.04) 1px, transparent 1px);
   background-size: 48px 48px;
 }

@@ -2,7 +2,7 @@ name: Deploy GOLD TITAN to GitHub Pages
 
 on:
   push:
-    branches: ['main']
+    branches: ['main', 'arena/810c951d-gold-titan']
   workflow_dispatch:
 
 permissions:

@@ -141,9 +141,12 @@ export function PricingSection({ allocation, onOpenSubscribeModal }: PricingSect
               </div>
 
               <picture className="shrink-0">
-                <source srcSet="/images/titan-launch-seal.webp" type="image/webp" />
+                <source
+                  srcSet={`${import.meta.env.BASE_URL}images/titan-launch-seal.webp`}
+                  type="image/webp"
+                />
                 <img
-                  src="/images/titan-launch-seal.png"
+                  src={`${import.meta.env.BASE_URL}images/titan-launch-seal.png`}
                   alt="Precision-milled dark titanium and brushed gold octagonal launch seal"
                   width={1536}
                   height={1024}

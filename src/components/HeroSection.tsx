@@ -126,9 +126,12 @@ export function HeroSection() {
                 </svg>
 
                 <picture>
-                  <source srcSet="/images/titan-core-hero.webp" type="image/webp" />
+                  <source
+                    srcSet={`${import.meta.env.BASE_URL}images/titan-core-hero.webp`}
+                    type="image/webp"
+                  />
                   <img
-                    src="/images/titan-core-hero.png"
+                    src={`${import.meta.env.BASE_URL}images/titan-core-hero.png`}
                     alt="GOLD TITAN precision-engineered matte black and brushed gold monolithic sculpture"
                     width={1024}
                     height={1536}

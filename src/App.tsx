@@ -12,6 +12,8 @@ import { LaunchSlotsSection } from './components/LaunchSlotsSection';
 import { FaqSection } from './components/FaqSection';
 import { FinalCtaAndFooter } from './components/FinalCtaAndFooter';
 import { SubscriptionModal } from './components/SubscriptionModal';
+import { Reveal } from './components/Reveal';
+import { CursorRing } from './components/CursorRing';
 import { useLaunchAllocation } from './lib/launchAllocation';
 
 export function App() {
@@ -37,23 +39,45 @@ export function App() {
       <HeaderNav />
 
       <main id="main-content">
-        <HeroSection />
-        <HeroTicker />
-        <ProblemSection />
-        <SolutionSection />
-        <HowItWorksSection />
-        <TechnologySection />
-        <PricingSection
-          allocation={allocation}
-          onOpenSubscribeModal={handleOpenSubscribeModal}
-        />
-        <LaunchSlotsSection
-          allocation={allocation}
-          onOpenSubscribeModal={handleOpenSubscribeModal}
-        />
-        <FaqSection />
-        <FinalCtaAndFooter />
+        <Reveal>
+          <HeroSection />
+        </Reveal>
+        <Reveal>
+          <HeroTicker />
+        </Reveal>
+        <Reveal>
+          <ProblemSection />
+        </Reveal>
+        <Reveal>
+          <SolutionSection />
+        </Reveal>
+        <Reveal>
+          <HowItWorksSection />
+        </Reveal>
+        <Reveal>
+          <TechnologySection />
+        </Reveal>
+        <Reveal>
+          <PricingSection
+            allocation={allocation}
+            onOpenSubscribeModal={handleOpenSubscribeModal}
+          />
+        </Reveal>
+        <Reveal>
+          <LaunchSlotsSection
+            allocation={allocation}
+            onOpenSubscribeModal={handleOpenSubscribeModal}
+          />
+        </Reveal>
+        <Reveal>
+          <FaqSection />
+        </Reveal>
+        <Reveal>
+          <FinalCtaAndFooter />
+        </Reveal>
       </main>
+
+      <CursorRing />
 
       <SubscriptionModal
         isOpen={modalOpen}

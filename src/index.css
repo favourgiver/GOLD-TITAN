@@ -120,100 +120,11 @@
   background-size: 48px 48px;
 }
 
-/* ------------------------------------------------------------------
-   Hero bonus-box reveal choreography
-   Closed box -> lid lifts off -> open box with bonus coupons & gold
-   ------------------------------------------------------------------ */
-
-.titan-hero-open {
-  opacity: 0;
-  animation: titan-box-open-reveal 1.05s cubic-bezier(0.22, 0.85, 0.3, 1) 1050ms forwards;
-  will-change: clip-path, opacity;
-}
-
-.titan-hero-closed-body {
-  animation: titan-box-body-away 0.85s ease-in 950ms forwards;
-}
-
-.titan-hero-closed-lid {
-  transform-origin: 56% 40%;
-  animation: titan-box-lid-lift 1.1s cubic-bezier(0.34, 0.7, 0.32, 1) 700ms forwards;
-  will-change: transform, opacity;
-}
-
-.titan-hero-flash {
-  opacity: 0;
-  animation: titan-box-glow-flash 1.3s ease-out 950ms forwards;
-}
-
-@keyframes titan-box-lid-lift {
-  0% {
-    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
-    opacity: 1;
-  }
-  60% {
-    opacity: 1;
-  }
-  100% {
-    transform: translate3d(7%, -32%, 0) rotate(-13deg) scale(1.03);
-    opacity: 0;
-  }
-}
-
-@keyframes titan-box-body-away {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes titan-box-open-reveal {
-  0% {
-    opacity: 1;
-    clip-path: inset(56% 0 0 0);
-    transform: scale(1.015);
-  }
-  100% {
-    opacity: 1;
-    clip-path: inset(0 0 0 0);
-    transform: scale(1);
-  }
-}
-
-@keyframes titan-box-glow-flash {
-  0% {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.55);
-  }
-  35% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(1.18);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .titan-hero-open {
-    opacity: 1;
-    animation: none;
-    clip-path: none;
-    transform: none;
-  }
-
-  .titan-hero-closed-body,
-  .titan-hero-closed-lid,
-  .titan-hero-flash {
-    display: none;
-  }
-}
-
-/* Continuous gentle floating motion for the hero visuals */
+/* Continuous gentle floating motion for the hero visuals
+   (bonus-box opening choreography removed per user direction;
+   the box now just floats) */
 .titan-hero-float {
-  animation: titan-hero-float 5.5s ease-in-out 2.4s infinite;
+  animation: titan-hero-float 5.5s ease-in-out 0s infinite;
   will-change: transform;
 }
 
@@ -257,5 +168,53 @@
 @media (prefers-reduced-motion: reduce) {
   .titan-ticker-track {
     animation: none;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Section reveal: every section pops slowly into view each time it
+   enters the screen (re-triggers on every scroll pass, up or down)
+   ------------------------------------------------------------------ */
+.titan-reveal {
+  opacity: 0;
+  transform: translateY(28px) scale(0.985);
+  transition: opacity 1.05s ease-out, transform 1.05s ease-out;
+  will-change: opacity, transform;
+}
+
+.titan-reveal.titan-reveal-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .titan-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Cursor ring: a little yellow-outlined circle that follows the
+   pointer anywhere on the page (hidden on touch / reduced motion)
+   ------------------------------------------------------------------ */
+.titan-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 90;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid rgba(255, 208, 0, 0.9);
+  border-radius: 9999px;
+  pointer-events: none;
+  opacity: 0;
+  box-shadow: 0 0 10px rgba(255, 208, 0, 0.22);
+}
+
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .titan-cursor-ring {
+    display: none;
   }
 }

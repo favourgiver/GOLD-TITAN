@@ -37,22 +37,22 @@ export function SolutionSection() {
             </div>
           </div>
 
-          {/* Floating GT trading robot (frameless) */}
+          {/* Floating GT trading robot (frameless, background removed, lower part fades in) */}
           <div className="lg:col-span-7 self-center">
             <div className="titan-hero-float relative mx-auto w-full max-w-[520px]">
               <picture>
                 <source
-                  srcSet={`${import.meta.env.BASE_URL}images/titan-gt-robot.webp`}
+                  srcSet={`${import.meta.env.BASE_URL}images/titan-gt-robot-cutout.webp`}
                   type="image/webp"
                 />
                 <img
-                  src={`${import.meta.env.BASE_URL}images/titan-gt-robot.jpg`}
+                  src={`${import.meta.env.BASE_URL}images/titan-gt-robot-cutout.png`}
                   alt="GOLD TITAN floating trading robot with a gold GT emblem on its chest"
                   width={1066}
                   height={1008}
                   loading="lazy"
                   decoding="async"
-                  className="h-auto w-full select-none [mask-image:radial-gradient(ellipse_72%_78%_at_50%_50%,black_62%,transparent_97%)]"
+                  className="h-auto w-full select-none [mask-image:linear-gradient(to_bottom,black_52%,transparent_96%)]"
                 />
               </picture>
             </div>

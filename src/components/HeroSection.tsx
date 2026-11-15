@@ -72,25 +72,72 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Right Hero Visual: Vault Box Opening with Trading Bot & Gold Bars */}
+          {/* Right Hero Visual: Bonus Box Opening Reveal (starts closed, opens on load) */}
           <div className="relative lg:col-span-5">
             <div className="relative mx-auto max-w-[460px] lg:max-w-none">
-              <div className="relative overflow-hidden rounded-3xl border border-[#FFD000]/20 bg-[#070707] shadow-[0_24px_80px_-20px_rgba(0,0,0,0.9)]">
-                <picture>
-                  <source
-                    srcSet={`${import.meta.env.BASE_URL}images/titan-hero-box.webp`}
-                    type="image/webp"
-                  />
-                  <img
-                    src={`${import.meta.env.BASE_URL}images/titan-hero-box.png`}
-                    alt="Matte-black vault box opening with a glowing trading bot core and gold bars emerging"
-                    width={1024}
-                    height={1536}
-                    loading="eager"
-                    decoding="async"
-                    className="relative z-10 mx-auto h-[390px] sm:h-[470px] lg:h-[520px] w-full object-cover object-center select-none"
-                  />
-                </picture>
+              <div className="relative overflow-hidden rounded-3xl border border-[#FFD000]/20 bg-black shadow-[0_24px_80px_-20px_rgba(0,0,0,0.9)]">
+                <div className="relative">
+                  {/* Final frame: the revealed open box with bonus coupons & gold bars */}
+                  <picture>
+                    <source
+                      srcSet={`${import.meta.env.BASE_URL}images/titan-hero-box.webp`}
+                      type="image/webp"
+                    />
+                    <img
+                      src={`${import.meta.env.BASE_URL}images/titan-hero-box.jpg`}
+                      alt="GOLD TITAN bonus box opening to reveal a 20% OFF coupon, a 30% OFF coupon and gold bars"
+                      width={1066}
+                      height={1008}
+                      loading="eager"
+                      decoding="async"
+                      className="titan-hero-open relative z-10 mx-auto h-[390px] sm:h-[470px] lg:h-[520px] w-full object-cover object-center select-none"
+                    />
+                  </picture>
+
+                  {/* Opening choreography layers (hidden to screen readers) */}
+                  <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-20">
+                    {/* Closed box: body half (kept below the lid seam) */}
+                    <div className="titan-hero-closed-body absolute inset-0 [clip-path:inset(50%_0_0_0)]">
+                      <picture>
+                        <source
+                          srcSet={`${import.meta.env.BASE_URL}images/titan-hero-box-closed.webp`}
+                          type="image/webp"
+                        />
+                        <img
+                          src={`${import.meta.env.BASE_URL}images/titan-hero-box-closed.jpg`}
+                          alt=""
+                          width={1066}
+                          height={1008}
+                          loading="eager"
+                          decoding="async"
+                          className="h-full w-full object-cover object-center select-none"
+                        />
+                      </picture>
+                    </div>
+
+                    {/* Golden flash as the box opens */}
+                    <div className="titan-hero-flash absolute left-1/2 top-[56%] h-[42%] w-[68%] -translate-x-1/2 -translate-y-1/2 rounded-[100%] bg-[radial-gradient(closest-side,rgba(255,240,120,0.55)_0%,rgba(255,208,0,0.28)_38%,transparent_72%)] blur-md" />
+
+                    {/* Closed box: lid half (lifts off) */}
+                    <div className="titan-hero-closed-lid absolute inset-0 [clip-path:inset(0_0_49%_0)]">
+                      <picture>
+                        <source
+                          srcSet={`${import.meta.env.BASE_URL}images/titan-hero-box-closed.webp`}
+                          type="image/webp"
+                        />
+                        <img
+                          src={`${import.meta.env.BASE_URL}images/titan-hero-box-closed.jpg`}
+                          alt=""
+                          width={1066}
+                          height={1008}
+                          loading="eager"
+                          decoding="async"
+                          className="h-full w-full object-cover object-center select-none"
+                        />
+                      </picture>
+                    </div>
+                  </div>
+                </div>
 
                 <div
                   aria-hidden="true"

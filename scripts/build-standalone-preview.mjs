@@ -32,6 +32,15 @@ css = css.replace(/url\((['"]?)(?:\.\/|\/assets\/)?([^)'"]+\.woff2)\1\)/g, (matc
 const heroWebpB64 = fs
   .readFileSync(path.join(rootDir, 'public/images/titan-hero-box.webp'))
   .toString('base64');
+const heroJpgB64 = fs
+  .readFileSync(path.join(rootDir, 'public/images/titan-hero-box.jpg'))
+  .toString('base64');
+const heroClosedWebpB64 = fs
+  .readFileSync(path.join(rootDir, 'public/images/titan-hero-box-closed.webp'))
+  .toString('base64');
+const heroClosedJpgB64 = fs
+  .readFileSync(path.join(rootDir, 'public/images/titan-hero-box-closed.jpg'))
+  .toString('base64');
 const logoWebpB64 = fs
   .readFileSync(path.join(rootDir, 'public/images/titan-screaming-logo.webp'))
   .toString('base64');
@@ -43,16 +52,25 @@ const faviconPngB64 = fs
   .toString('base64');
 
 const heroDataUri = `data:image/webp;base64,${heroWebpB64}`;
+const heroJpgDataUri = `data:image/jpeg;base64,${heroJpgB64}`;
+const heroClosedDataUri = `data:image/webp;base64,${heroClosedWebpB64}`;
+const heroClosedJpgDataUri = `data:image/jpeg;base64,${heroClosedJpgB64}`;
 const logoDataUri = `data:image/webp;base64,${logoWebpB64}`;
 const sealDataUri = `data:image/webp;base64,${sealWebpB64}`;
 
 const replacements = [
+  ['./images/titan-hero-box-closed.webp', heroClosedDataUri],
+  ['./images/titan-hero-box-closed.jpg', heroClosedJpgDataUri],
+  ['/images/titan-hero-box-closed.webp', heroClosedDataUri],
+  ['/images/titan-hero-box-closed.jpg', heroClosedJpgDataUri],
+  ['images/titan-hero-box-closed.webp', heroClosedDataUri],
+  ['images/titan-hero-box-closed.jpg', heroClosedJpgDataUri],
   ['./images/titan-hero-box.webp', heroDataUri],
-  ['./images/titan-hero-box.png', heroDataUri],
+  ['./images/titan-hero-box.jpg', heroJpgDataUri],
   ['/images/titan-hero-box.webp', heroDataUri],
-  ['/images/titan-hero-box.png', heroDataUri],
+  ['/images/titan-hero-box.jpg', heroJpgDataUri],
   ['images/titan-hero-box.webp', heroDataUri],
-  ['images/titan-hero-box.png', heroDataUri],
+  ['images/titan-hero-box.jpg', heroJpgDataUri],
   ['./images/titan-screaming-logo.webp', logoDataUri],
   ['./images/titan-screaming-logo.png', logoDataUri],
   ['/images/titan-screaming-logo.webp', logoDataUri],

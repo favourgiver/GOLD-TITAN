@@ -8,12 +8,12 @@ export function HeroTicker() {
     <div
       role="region"
       aria-label="Key product strengths ticker"
-      className="relative z-10 overflow-x-clip overflow-y-visible bg-transparent py-[clamp(20px,2.5vw,64px)]"
+      className="relative z-10 -mt-[clamp(34px,4.5vw,66px)] mb-[clamp(34px,4.5vw,66px)] overflow-x-clip overflow-y-visible bg-transparent py-[clamp(20px,2.5vw,64px)]"
     >
       {/* Accessible single read for screen readers */}
       <p className="sr-only">{PHRASES.join(' — ')}</p>
 
-      {/* Ticker band tilted to 175°: left end sits lower, right end sits higher */}
+      {/* Ticker band tilted to +177° (left lower, right higher); lifted higher so it doesn't block the section words */}
       <div className="titan-ticker-band border-y border-[#FFD000]/15 bg-[#090909] py-4 sm:py-5">
         {/* Continuous seamless infinite moving ticker (1.5x slower) */}
         <div aria-hidden="true" className="titan-ticker-track">

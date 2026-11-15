@@ -144,13 +144,14 @@
   }
 }
 
-/* Continuous product-strengths ticker band directly under the hero,
-   tilted to 175°: left end lower, right end higher. Band is slightly
-   oversized so the rotated strip still covers the full viewport width. */
+/* Continuous product-strengths ticker band over the problem section,
+   tilted to +177° (i.e. -3°): left end sits lower, right end sits higher.
+   Band is slightly oversized so the rotated strip still covers the full
+   viewport width. */
 .titan-ticker-band {
   width: 104vw;
   margin-left: -2vw;
-  transform: rotate(-5deg);
+  transform: rotate(-3deg);
   will-change: transform;
 }
 

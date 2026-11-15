@@ -22,6 +22,7 @@ export function HeroSection() {
 
   const [{ active, prev }, setSlideState] = useState({ active: 0, prev: -1 });
   const [paused, setPaused] = useState(false);
+  const [cycle, setCycle] = useState(0);
   const reducedMotion = usePrefersReducedMotion();
 
   // Auto-swap the two hero slides every 5 seconds (swiping to the left)
@@ -31,7 +32,13 @@ export function HeroSection() {
       setSlideState((s) => ({ prev: s.active, active: (s.active + 1) % slides.length }));
     }, 5000);
     return () => window.clearInterval(id);
-  }, [paused, reducedMotion, slides.length]);
+  }, [paused, reducedMotion, slides.length, cycle]);
+
+  // Slide-indicator dots: jump to a visual and restart the 5s cadence
+  const goToSlide = (idx: number) => {
+    setSlideState((s) => ({ prev: s.active, active: idx }));
+    setCycle((c) => c + 1);
+  };
 
   const slidePosClass = (idx: number) => {
     if (idx === active) return 'translate-x-0 opacity-100';
@@ -179,10 +186,25 @@ export function HeroSection() {
                       GOLD TITAN · XAUUSD
                     </span>
                   </div>
-                  <span className="font-mono text-[11px] tracking-[0.08em] text-[#AAA49A]">
-                    MT4 / MT5
-                  </span>
                 </div>
+              </div>
+
+              {/* Slide indicator: there are two hero visuals */}
+              <div className="relative z-30 mt-4 flex items-center justify-center gap-2.5">
+                {slides.map((slide, idx) => (
+                  <button
+                    key={slide.headline}
+                    type="button"
+                    aria-label={`Show hero visual ${idx + 1} of ${slides.length}`}
+                    aria-current={active === idx}
+                    onClick={() => goToSlide(idx)}
+                    className={`h-2.5 rounded-full transition-all duration-300 ${
+                      active === idx
+                        ? 'w-7 bg-[#FFD000] shadow-[0_0_10px_rgba(255,208,0,0.45)]'
+                        : 'w-2.5 border border-[#FFD000]/35 bg-[#111111] hover:border-[#FFD000]/70'
+                    }`}
+                  />
+                ))}
               </div>
             </div>
           </div>

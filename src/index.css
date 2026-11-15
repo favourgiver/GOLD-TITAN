@@ -232,3 +232,21 @@
     animation: none;
   }
 }
+
+/* Continuous product-strengths ticker band directly under the hero */
+.titan-ticker-track {
+  display: flex;
+  width: max-content;
+  animation: titan-marquee 22s linear infinite;
+  will-change: transform;
+}
+
+.titan-ticker-track:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .titan-ticker-track {
+    animation: none;
+  }
+}

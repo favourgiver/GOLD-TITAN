@@ -232,55 +232,6 @@ export function HeroSection() {
           </div>
         </div>
 
-        {/* Lower Specification Rail: Key Product Highlights + Audience Positioning */}
-        <div className="mt-14 lg:mt-20 rounded-2xl border border-[#FFD000]/18 bg-[#0D0C0A] p-6 sm:p-8 lg:p-9">
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-10">
-            <div className="lg:col-span-7">
-              <h2 className="font-mono text-[11px] font-semibold tracking-[0.16em] text-[#FFD000]">
-                {section1Hero.highlightsHeading}
-              </h2>
-              <ul className="mt-4 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
-                {section1Hero.highlights.map((item, idx) => (
-                  <li
-                    key={item}
-                    className={`flex items-start gap-3 rounded-xl border border-[#FFD000]/14 bg-[#13120F] px-4 py-3 text-[14px] leading-snug text-[#F5F2EA] ${
-                      idx === section1Hero.highlights.length - 1 ? 'sm:col-span-2' : ''
-                    }`}
-                  >
-                    <span
-                      aria-hidden="true"
-                      className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#FFD000]"
-                    />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="flex flex-col justify-between border-t border-[#FFD000]/14 pt-6 lg:col-span-5 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-10">
-              <div>
-                <h2 className="font-mono text-[11px] font-semibold tracking-[0.16em] text-[#FFD000]">
-                  {section1Hero.audienceHeading}
-                </h2>
-                <p className="mt-4 text-[15px] sm:text-[15.5px] leading-[1.68] text-[#B8B2A7]">
-                  {section1Hero.audienceBody}
-                </p>
-              </div>
-
-              <div className="mt-6 flex flex-wrap items-center gap-2 pt-2">
-                <span className="rounded-md border border-[#FFD000]/16 bg-[#151411] px-2.5 py-1 font-mono text-[11px] text-[#AAA49A]">
-                  CORE RANGE · 21-35
-                </span>
-                <span className="rounded-md border border-[#FFD000]/16 bg-[#151411] px-2.5 py-1 font-mono text-[11px] text-[#AAA49A]">
-                  LIVE MT4 / MT5
-                </span>
-                <span className="rounded-md border border-[#FFD000]/22 bg-[#151411] px-2.5 py-1 font-mono text-[11px] text-[#FFD000]">
-                  $50 / MONTH
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );

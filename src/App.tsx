@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { AnnouncementBar } from './components/AnnouncementBar';
 import { HeaderNav } from './components/HeaderNav';
 import { HeroSection } from './components/HeroSection';
+import { HeroTicker } from './components/HeroTicker';
 import { ProblemSection } from './components/ProblemSection';
 import { SolutionSection } from './components/SolutionSection';
 import { HowItWorksSection } from './components/HowItWorksSection';
@@ -38,6 +39,7 @@ export function App() {
 
       <main id="main-content">
         <HeroSection />
+        <HeroTicker />
         <ProblemSection />
         <SolutionSection />
         <HowItWorksSection />

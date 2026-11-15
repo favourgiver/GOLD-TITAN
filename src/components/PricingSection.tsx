@@ -67,11 +67,14 @@ export function PricingSection({ allocation, onOpenSubscribeModal }: PricingSect
                 <span className="sm:hidden block font-mono text-[10px] tracking-[0.14em] text-[#AAA49A] mb-1">
                   {section7Pricing.standardPlan.columnHeaderRight}
                 </span>
-                <div className="text-sm font-light line-through text-[#AAA49A]">
-                  {section7Pricing.standardPlan.wasPrice}
-                </div>
-                <div className="text-[2rem] sm:text-[2.35rem] font-semibold tracking-[-0.03em] text-[#F5F2EA]">
-                  {section7Pricing.standardPlan.price}
+                {/* Price stack: crossed $50 flush with the $35 below it (left edges aligned at every breakpoint) */}
+                <div className="flex flex-col items-start">
+                  <div className="text-sm font-light line-through leading-tight text-[#AAA49A]">
+                    {section7Pricing.standardPlan.wasPrice}
+                  </div>
+                  <div className="text-[2rem] sm:text-[2.35rem] font-semibold leading-none tracking-[-0.03em] text-[#F5F2EA]">
+                    {section7Pricing.standardPlan.price}
+                  </div>
                 </div>
               </div>
 

@@ -27,6 +27,13 @@ export function App() {
 
   return (
     <div className="min-h-screen bg-[#070707] text-[#F5F2EA]">
+      {/* Slow randomly-drifting golden gradient background + subtle noise grain */}
+      <div aria-hidden="true" className="titan-ambient">
+        <div className="titan-ambient-blob titan-ambient-blob-a" />
+        <div className="titan-ambient-blob titan-ambient-blob-b" />
+      </div>
+      <div aria-hidden="true" className="titan-noise" />
+
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-full focus:bg-[#FFD000] focus:px-5 focus:py-2.5 focus:text-xs focus:font-bold focus:text-[#070707]"

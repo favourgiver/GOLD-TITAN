@@ -199,7 +199,8 @@
 
 /* ------------------------------------------------------------------
    Cursor ring: a little yellow-outlined circle that follows the
-   pointer anywhere on the page (hidden on touch / reduced motion)
+   pointer anywhere on the page; whatever sits inside the circle is
+   blurred (hidden on touch / reduced motion)
    ------------------------------------------------------------------ */
 .titan-cursor-ring {
   position: fixed;
@@ -213,10 +214,94 @@
   pointer-events: none;
   opacity: 0;
   box-shadow: 0 0 10px rgba(255, 208, 0, 0.22);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
 }
 
 @media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
   .titan-cursor-ring {
     display: none;
   }
+}
+
+/* ------------------------------------------------------------------
+   Ambient golden gradient background in slow random motion,
+   plus a subtle noise-grain overlay across the screen
+   ------------------------------------------------------------------ */
+.titan-ambient {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+  mix-blend-mode: screen;
+}
+
+.titan-ambient-blob {
+  position: absolute;
+  width: 55vmax;
+  height: 55vmax;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(255, 208, 0, 0.11) 0%, rgba(255, 208, 0, 0.045) 38%, transparent 70%);
+  filter: blur(34px);
+  will-change: transform;
+}
+
+.titan-ambient-blob-a {
+  left: -14vmax;
+  top: -12vmax;
+  animation: titan-ambient-drift-a 47s ease-in-out infinite alternate;
+}
+
+.titan-ambient-blob-b {
+  right: -16vmax;
+  bottom: -14vmax;
+  animation: titan-ambient-drift-b 63s ease-in-out infinite alternate;
+}
+
+@keyframes titan-ambient-drift-a {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(34vw, 16vh, 0) scale(1.14);
+  }
+  66% {
+    transform: translate3d(9vw, 46vh, 0) scale(0.92);
+  }
+  100% {
+    transform: translate3d(46vw, 34vh, 0) scale(1.08);
+  }
+}
+
+@keyframes titan-ambient-drift-b {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1.05);
+  }
+  28% {
+    transform: translate3d(-38vw, -22vh, 0) scale(0.9);
+  }
+  61% {
+    transform: translate3d(-14vw, -48vh, 0) scale(1.12);
+  }
+  100% {
+    transform: translate3d(-48vw, -6vh, 0) scale(0.97);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .titan-ambient-blob {
+    animation: none;
+  }
+}
+
+/* Subtle film-grain noise laid over the whole screen */
+.titan-noise {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='titan-noise'><feTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23titan-noise)' opacity='0.6'/></svg>");
+  background-size: 220px 220px;
 }

@@ -22,7 +22,17 @@ export function ProblemSection() {
             id="problem-heading"
             className="text-[2.15rem] sm:text-[2.65rem] lg:text-[2.95rem] font-semibold leading-[1.1] tracking-[-0.025em] text-[#F5F2EA]"
           >
-            {section2Problem.heading}
+            {(() => {
+              const accent = "Shouldn't";
+              const [before, ...rest] = section2Problem.heading.split(accent);
+              return (
+                <>
+                  {before}
+                  <span className="text-[#FFD000]">{accent}</span>
+                  {rest.join(accent)}
+                </>
+              );
+            })()}
           </h2>
           <p className="mt-5 text-[16px] leading-[1.68] text-[#AAA49A]">
             {section2Problem.intro}

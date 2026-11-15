@@ -74,7 +74,16 @@ export function HeroSection() {
                     id={idx === active ? 'hero-heading' : undefined}
                     className="text-[2.25rem] sm:text-[3.1rem] lg:text-[3.75rem] xl:text-[4.1rem] font-bold leading-[1.05] tracking-[-0.03em] text-[#F5F2EA]"
                   >
-                    {slide.headline}
+                    {(() => {
+                      const [before, ...rest] = slide.headline.split(slide.accent);
+                      return (
+                        <>
+                          {before}
+                          <span className="text-[#FFD000]">{slide.accent}</span>
+                          {rest.join(slide.accent)}
+                        </>
+                      );
+                    })()}
                   </h1>
                   <p className="mt-6 max-w-[610px] text-[16px] sm:text-[17px] font-medium leading-[1.65] text-[#D8D2C6]">
                     {slide.tagline}

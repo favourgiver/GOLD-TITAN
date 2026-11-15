@@ -26,11 +26,13 @@ export const HOMEPAGE_COPY = {
     slides: [
       {
         headline: 'Enjoy your 20%/30% discount.',
+        accent: 'discount',
         tagline:
           'You could enjoy 30% discount if you are one of the first 5 subscribers in December & 20% discount if you pay for more than a month at once.',
       },
       {
         headline: 'A Bot that trades for you.',
+        accent: 'trades',
         tagline: "Let Titan analyze and trade automatically for you, even when you don't know how.",
       },
     ],

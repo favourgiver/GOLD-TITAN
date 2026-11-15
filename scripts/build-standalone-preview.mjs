@@ -47,6 +47,12 @@ const heroBotWebpB64 = fs
 const heroBotJpgB64 = fs
   .readFileSync(path.join(rootDir, 'public/images/titan-hero-bot.jpg'))
   .toString('base64');
+const gtRobotWebpB64 = fs
+  .readFileSync(path.join(rootDir, 'public/images/titan-gt-robot.webp'))
+  .toString('base64');
+const gtRobotJpgB64 = fs
+  .readFileSync(path.join(rootDir, 'public/images/titan-gt-robot.jpg'))
+  .toString('base64');
 const logoWebpB64 = fs
   .readFileSync(path.join(rootDir, 'public/images/titan-screaming-logo.webp'))
   .toString('base64');
@@ -63,10 +69,18 @@ const heroClosedDataUri = `data:image/webp;base64,${heroClosedWebpB64}`;
 const heroClosedJpgDataUri = `data:image/jpeg;base64,${heroClosedJpgB64}`;
 const heroBotDataUri = `data:image/webp;base64,${heroBotWebpB64}`;
 const heroBotJpgDataUri = `data:image/jpeg;base64,${heroBotJpgB64}`;
+const gtRobotDataUri = `data:image/webp;base64,${gtRobotWebpB64}`;
+const gtRobotJpgDataUri = `data:image/jpeg;base64,${gtRobotJpgB64}`;
 const logoDataUri = `data:image/webp;base64,${logoWebpB64}`;
 const sealDataUri = `data:image/webp;base64,${sealWebpB64}`;
 
 const replacements = [
+  ['./images/titan-gt-robot.webp', gtRobotDataUri],
+  ['./images/titan-gt-robot.jpg', gtRobotJpgDataUri],
+  ['/images/titan-gt-robot.webp', gtRobotDataUri],
+  ['/images/titan-gt-robot.jpg', gtRobotJpgDataUri],
+  ['images/titan-gt-robot.webp', gtRobotDataUri],
+  ['images/titan-gt-robot.jpg', gtRobotJpgDataUri],
   ['./images/titan-hero-bot.webp', heroBotDataUri],
   ['./images/titan-hero-bot.jpg', heroBotJpgDataUri],
   ['/images/titan-hero-bot.webp', heroBotDataUri],

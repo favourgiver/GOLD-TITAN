@@ -71,9 +71,10 @@ export const HOMEPAGE_COPY = {
     overline: 'Introducing the solution',
     heading: 'Meet GOLD TITAN. Your Automated Gold-Trading Companion.',
     paragraphs: [
-      'GOLD TITAN is an automated trading software solution developed for the XAUUSD market.',
-      'Designed to work with MetaTrader 4 and MetaTrader 5, GOLD TITAN helps automate its programmed trading strategy, reducing the need for constant manual trade execution.',
-      "Whether you're balancing a career, running a business or learning the Forex market, GOLD TITAN gives you access to automated trading technology designed around your time.",
+      // User-directed override wording
+      'GOLD TITAN is an automated trading AI solution developed for the XAUUSD market.',
+      'Designed to work with MetaTrader 4, GOLD TITAN helps automate its programmed trading strategy, reducing the need for constant manual trade execution.',
+      "Whether you're already a pro, or balancing a career, running a business or learning the Forex market, GOLD TITAN gives you access to automated trading technology designed specifically for the XAUUSD market.",
     ],
     appealingHeading: 'WHAT MAKES GOLD TITAN APPEALING?',
     appealingItems: [

@@ -2,6 +2,7 @@ import { ArrowUpRight } from 'lucide-react';
 import { HOMEPAGE_COPY } from '../content/homepageCopy';
 
 const SPEC_TAGS = ['$250 MIN'] as const;
+const SLOTS_TAG = '20 SLOTS';
 
 export function TechnologySection() {
   const { section6Technology } = HOMEPAGE_COPY;
@@ -36,7 +37,19 @@ export function TechnologySection() {
                   <h3 className="text-[18px] sm:text-[19.5px] font-semibold tracking-[-0.015em] text-[#F5F2EA]">
                     {spec.title}
                   </h3>
-                  <p className="mt-2 text-[15px] leading-[1.65] text-[#AAA49A]">{spec.body}</p>
+                  <p className="mt-2 text-[15px] leading-[1.65] text-[#AAA49A]">
+                    {(() => {
+                      const accent = '$250';
+                      const [before, ...rest] = spec.body.split(accent);
+                      return (
+                        <>
+                          {before}
+                          <span className="font-semibold text-[#FFD000]">{accent}</span>
+                          {rest.join(accent)}
+                        </>
+                      );
+                    })()}
+                  </p>
                 </div>
                 <span className="self-start shrink-0 rounded-md border border-[#FFD000]/22 bg-[#191710] px-3 py-1 font-mono text-[11px] font-medium tracking-[0.1em] text-[#FFD000]">
                   {SPEC_TAGS[idx]}
@@ -44,21 +57,36 @@ export function TechnologySection() {
               </div>
             ))}
 
-            {/* Merged from the removed right-side box */}
-            <div className="py-6 sm:py-7">
-              <h3 className="text-[18px] sm:text-[19.5px] font-semibold tracking-[-0.015em] text-[#F5F2EA]">
-                {section6Technology.slotsHeading}
-              </h3>
-              <p className="mt-2 max-w-[620px] text-[15px] leading-[1.65] text-[#AAA49A]">
-                {section6Technology.slotsBody}
-              </p>
-              <a
-                href="#pricing"
-                className="btn-gold-primary mt-6 inline-flex min-h-[48px] items-center justify-center gap-2.5 rounded-full px-7 py-3.5 text-[13px] font-bold tracking-[0.06em]"
-              >
-                <span>{section6Technology.cta}</span>
-                <ArrowUpRight className="h-4 w-4 stroke-[2.25]" aria-hidden="true" />
-              </a>
+            {/* Only 20 Slots (merged from the removed right-side box) */}
+            <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 py-6 sm:py-7">
+              <div className="max-w-[460px]">
+                <h3 className="text-[18px] sm:text-[19.5px] font-semibold tracking-[-0.015em] text-[#F5F2EA]">
+                  {(() => {
+                    const accent = '20';
+                    const [before, ...rest] = section6Technology.slotsHeading.split(accent);
+                    return (
+                      <>
+                        {before}
+                        <span className="text-[#FFD000]">{accent}</span>
+                        {rest.join(accent)}
+                      </>
+                    );
+                  })()}
+                </h3>
+                <p className="mt-2 text-[15px] leading-[1.65] text-[#AAA49A]">
+                  {section6Technology.slotsBody}
+                </p>
+                <a
+                  href="#pricing"
+                  className="btn-gold-primary mt-6 inline-flex min-h-[48px] items-center justify-center gap-2.5 rounded-full px-7 py-3.5 text-[13px] font-bold tracking-[0.06em]"
+                >
+                  <span>{section6Technology.cta}</span>
+                  <ArrowUpRight className="h-4 w-4 stroke-[2.25]" aria-hidden="true" />
+                </a>
+              </div>
+              <span className="self-start shrink-0 rounded-md border border-[#FFD000]/22 bg-[#191710] px-3 py-1 font-mono text-[11px] font-medium tracking-[0.1em] text-[#FFD000]">
+                {SLOTS_TAG}
+              </span>
             </div>
           </div>
         </div>

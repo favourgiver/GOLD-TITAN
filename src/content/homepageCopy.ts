@@ -146,7 +146,7 @@ export const HOMEPAGE_COPY = {
     // User-directed replacement for the removed spec cards & transparency block
     slotsHeading: 'Only 20 Slots',
     slotsBody: 'Though a bot, there are only 20 spots available every month',
-    cta: 'EXPLORE GOLD TITAN',
+    cta: 'GET ACCESS NOW',
   },
 
   section7Pricing: {

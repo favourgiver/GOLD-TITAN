@@ -17,7 +17,8 @@ export const HOMEPAGE_COPY = {
       { label: 'Pricing', href: '#pricing' },
       { label: 'FAQs', href: '#faqs' },
     ],
-    cta: 'GET STARTED WITH GOLD TITAN',
+    // User-directed override CTA
+    cta: 'GET ACCESS',
   },
 
   section1Hero: {
@@ -35,8 +36,8 @@ export const HOMEPAGE_COPY = {
         tagline: "Let Titan analyze and trade automatically for you, even when you don't know how.",
       },
     ],
-    primaryCta: 'GET STARTED WITH GOLD TITAN',
-    secondaryCta: 'DISCOVER HOW IT WORKS',
+    // User-directed override CTA ('DISCOVER HOW IT WORKS' secondary button removed)
+    primaryCta: 'GET ACCESS',
     highlightsHeading: 'KEY PRODUCT HIGHLIGHTS',
     highlights: [
       'Specialised in XAUUSD (Gold).',
@@ -95,7 +96,8 @@ export const HOMEPAGE_COPY = {
           'Reduce the amount of time you spend monitoring the market and manually executing trades.',
       },
     ],
-    cta: 'DISCOVER GOLD TITAN',
+    // User-directed override CTA
+    cta: 'GET ACCESS',
     subCtaNote: 'Your time matters. Explore a more automated approach to gold trading.',
   },
 
@@ -129,7 +131,8 @@ export const HOMEPAGE_COPY = {
       'Demo accounts are not supported.',
       'No separate VPS is required.',
     ],
-    cta: 'GET STARTED TODAY',
+    // User-directed override CTA
+    cta: 'GET ACCESS TODAY',
   },
 
   section6Technology: {

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ArrowDownRight, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { HOMEPAGE_COPY } from '../content/homepageCopy';
 
 function usePrefersReducedMotion() {
@@ -92,7 +92,7 @@ export function HeroSection() {
               ))}
             </div>
 
-            {/* Dual Glowing CTA Stack */}
+            {/* Glowing Primary CTA (secondary 'DISCOVER HOW IT WORKS' button removed per user direction) */}
             <div className="mt-9 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3.5">
               <a
                 href="#pricing"
@@ -100,14 +100,6 @@ export function HeroSection() {
               >
                 <span>{section1Hero.primaryCta}</span>
                 <ArrowUpRight className="h-4 w-4 stroke-[2.25]" aria-hidden="true" />
-              </a>
-
-              <a
-                href="#how-it-works"
-                className="btn-outline-glow inline-flex min-h-[50px] items-center justify-center gap-2 rounded-full border border-[#FFD000]/35 bg-[#111111]/90 px-7 py-3.5 text-[13px] font-semibold tracking-[0.06em] text-[#F5F2EA] hover:border-[#FFD000]/70 hover:bg-[#171610]"
-              >
-                <span>{section1Hero.secondaryCta}</span>
-                <ArrowDownRight className="h-4 w-4 text-[#FFD000]" aria-hidden="true" />
               </a>
             </div>
           </div>

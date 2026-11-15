@@ -24,12 +24,33 @@ export function FinalCtaAndFooter() {
                 id="final-cta-heading"
                 className="text-[2rem] sm:text-[2.65rem] lg:text-[3.1rem] font-semibold leading-[1.08] tracking-[-0.025em] text-[#F5F2EA]"
               >
-                {finalCta.heading}
+                {(() => {
+                  // User-directed yellow accent for 'The New Era'
+                  const accent = 'The New Era';
+                  const [before, ...rest] = finalCta.heading.split(accent);
+                  return (
+                    <>
+                      {before}
+                      <span className="text-[#FFD000]">{accent}</span>
+                      {rest.join(accent)}
+                    </>
+                  );
+                })()}
               </h2>
 
               <div className="mt-6 space-y-3 text-[16px] sm:text-[17.5px] leading-[1.65] text-[#D2CCC0]">
                 {finalCta.paragraphs.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
+                  // User-directed yellow accent for 'GOLD TITAN'
+                  <p key={paragraph}>
+                    {paragraph.split('GOLD TITAN').map((part, i, arr) => (
+                      <span key={i}>
+                        {part}
+                        {i < arr.length - 1 && (
+                          <span className="font-semibold text-[#FFD000]">GOLD TITAN</span>
+                        )}
+                      </span>
+                    ))}
+                  </p>
                 ))}
               </div>
 

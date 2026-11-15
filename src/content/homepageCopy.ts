@@ -134,37 +134,18 @@ export const HOMEPAGE_COPY = {
 
   section6Technology: {
     overline: 'Get to know the technology',
-    heading: "Before You Subscribe, Know Exactly What You're Getting.",
-    intro:
-      'GOLD TITAN is a new automated gold-trading solution, and we want you to understand the software before making your decision.',
+    // User-directed override wording
+    heading: 'Know This.',
+    intro: 'Important to take note of',
     specs: [
-      {
-        title: 'A Dedicated XAUUSD Trading Solution',
-        body: 'GOLD TITAN focuses on the gold market rather than presenting itself as an all-market trading robot.',
-      },
-      {
-        title: 'Two Supported Platforms',
-        body: 'Choose between the compatible MT4 and MT5 versions.',
-      },
-      {
-        title: 'A Ready-to-Use Setup',
-        body: "You don't need to source or configure a separate VPS. The required GOLD TITAN setup has already been handled.",
-      },
       {
         title: 'A Clearly Defined Account Requirement',
         body: 'A minimum live trading balance of $250 is required before the bot can start trading.',
       },
-      {
-        title: 'A Straightforward Subscription',
-        body: 'Pay $50 for one month of software access, or save 20% by subscribing for two or more months upfront.',
-      },
     ],
-    transparencyHeading: 'OUR APPROACH TO TRANSPARENCY',
-    transparencyParagraphs: [
-      'We want you to understand the product, its functionality, its requirements and its limitations.',
-      'As a newly launched product, we are not presenting unverified trading results or manufactured customer testimonials as evidence of performance.',
-      'Forex and gold trading involve risk. GOLD TITAN does not guarantee profitable trades or eliminate the possibility of losses.',
-    ],
+    // User-directed replacement for the removed spec cards & transparency block
+    slotsHeading: 'Only 20 Slots',
+    slotsBody: 'Though a bot, there are only 20 spots available every month',
     cta: 'EXPLORE GOLD TITAN',
   },
 

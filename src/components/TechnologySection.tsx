@@ -1,7 +1,7 @@
-import { ArrowUpRight, ShieldAlert } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { HOMEPAGE_COPY } from '../content/homepageCopy';
 
-const SPEC_TAGS = ['XAUUSD', 'MT4 / MT5', 'NO VPS', '$250 MIN', '$50 / MO'] as const;
+const SPEC_TAGS = ['$250 MIN'] as const;
 
 export function TechnologySection() {
   const { section6Technology } = HOMEPAGE_COPY;
@@ -49,18 +49,12 @@ export function TechnologySection() {
 
           <div className="lg:col-span-5 flex flex-col justify-between">
             <div className="rounded-3xl border border-[#FFD000]/35 bg-gradient-to-b from-[#191811] to-[#11100D] p-7 sm:p-8 lg:p-9">
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#FFD000]/35 bg-[#0B0A08] px-3.5 py-1.5 font-mono text-[11px] font-semibold tracking-[0.14em] text-[#FFD000]">
-                <ShieldAlert className="h-3.5 w-3.5 text-[#FFD000]" aria-hidden="true" />
-                <span>{section6Technology.transparencyHeading}</span>
-              </div>
-
-              <div className="mt-6 space-y-4 text-[15.5px] sm:text-[16px] leading-[1.7] text-[#E5E0D5]">
-                <p>{section6Technology.transparencyParagraphs[0]}</p>
-                <p className="rounded-xl border border-[#FFD000]/18 bg-[#0C0B09] p-4 text-[#F5F2EA] font-medium">
-                  {section6Technology.transparencyParagraphs[1]}
-                </p>
-                <p className="text-[#B8B2A7]">{section6Technology.transparencyParagraphs[2]}</p>
-              </div>
+              <h3 className="text-[22px] sm:text-[24px] font-semibold tracking-[-0.015em] text-[#F5F2EA]">
+                {section6Technology.slotsHeading}
+              </h3>
+              <p className="mt-3 text-[15.5px] sm:text-[16px] leading-[1.7] text-[#B8B2A7]">
+                {section6Technology.slotsBody}
+              </p>
 
               <div className="mt-8 pt-6 border-t border-[#FFD000]/14">
                 <a

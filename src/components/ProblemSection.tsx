@@ -1,5 +1,6 @@
 import { X } from 'lucide-react';
 import { HOMEPAGE_COPY } from '../content/homepageCopy';
+import { HeroTicker } from './HeroTicker';
 
 export function ProblemSection() {
   const { section2Problem } = HOMEPAGE_COPY;
@@ -14,6 +15,9 @@ export function ProblemSection() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#FFD000]/45 to-transparent"
       />
+
+      {/* Moving 'Automated Trading / Specialized in XAUUSD (GOLD)' ticker placed over the top of this section (per user direction) */}
+      <HeroTicker />
 
       <div className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
         {/* Left-side paragraph layout: heading, intro, X-marked pain points, closing line */}

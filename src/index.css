@@ -157,7 +157,8 @@
 .titan-ticker-track {
   display: flex;
   width: max-content;
-  animation: titan-marquee 44s linear infinite;
+  /* 1.5x slower than the prior 44s loop */
+  animation: titan-marquee 66s linear infinite;
   will-change: transform;
 }
 

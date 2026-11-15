@@ -8,14 +8,14 @@ export function HeroTicker() {
     <div
       role="region"
       aria-label="Key product strengths ticker"
-      className="relative z-10 overflow-x-clip overflow-y-visible bg-[#070707] py-[clamp(20px,2.5vw,64px)]"
+      className="relative z-10 overflow-x-clip overflow-y-visible bg-transparent py-[clamp(20px,2.5vw,64px)]"
     >
       {/* Accessible single read for screen readers */}
       <p className="sr-only">{PHRASES.join(' — ')}</p>
 
       {/* Ticker band tilted to 175°: left end sits lower, right end sits higher */}
       <div className="titan-ticker-band border-y border-[#FFD000]/15 bg-[#090909] py-4 sm:py-5">
-        {/* Continuous seamless infinite moving ticker (2x slower) */}
+        {/* Continuous seamless infinite moving ticker (1.5x slower) */}
         <div aria-hidden="true" className="titan-ticker-track">
           {[0, 1].map((groupIndex) => (
             <div key={groupIndex} className="flex shrink-0 items-center">

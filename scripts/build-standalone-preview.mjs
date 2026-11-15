@@ -35,12 +35,6 @@ const heroWebpB64 = fs
 const heroJpgB64 = fs
   .readFileSync(path.join(rootDir, 'public/images/titan-hero-box.jpg'))
   .toString('base64');
-const heroClosedWebpB64 = fs
-  .readFileSync(path.join(rootDir, 'public/images/titan-hero-box-closed.webp'))
-  .toString('base64');
-const heroClosedJpgB64 = fs
-  .readFileSync(path.join(rootDir, 'public/images/titan-hero-box-closed.jpg'))
-  .toString('base64');
 const heroBotWebpB64 = fs
   .readFileSync(path.join(rootDir, 'public/images/titan-hero-bot.webp'))
   .toString('base64');
@@ -48,10 +42,10 @@ const heroBotJpgB64 = fs
   .readFileSync(path.join(rootDir, 'public/images/titan-hero-bot.jpg'))
   .toString('base64');
 const gtRobotWebpB64 = fs
-  .readFileSync(path.join(rootDir, 'public/images/titan-gt-robot.webp'))
+  .readFileSync(path.join(rootDir, 'public/images/titan-gt-robot-cutout.webp'))
   .toString('base64');
-const gtRobotJpgB64 = fs
-  .readFileSync(path.join(rootDir, 'public/images/titan-gt-robot.jpg'))
+const gtRobotPngB64 = fs
+  .readFileSync(path.join(rootDir, 'public/images/titan-gt-robot-cutout.png'))
   .toString('base64');
 const logoWebpB64 = fs
   .readFileSync(path.join(rootDir, 'public/images/titan-screaming-logo.webp'))
@@ -65,34 +59,26 @@ const faviconPngB64 = fs
 
 const heroDataUri = `data:image/webp;base64,${heroWebpB64}`;
 const heroJpgDataUri = `data:image/jpeg;base64,${heroJpgB64}`;
-const heroClosedDataUri = `data:image/webp;base64,${heroClosedWebpB64}`;
-const heroClosedJpgDataUri = `data:image/jpeg;base64,${heroClosedJpgB64}`;
 const heroBotDataUri = `data:image/webp;base64,${heroBotWebpB64}`;
 const heroBotJpgDataUri = `data:image/jpeg;base64,${heroBotJpgB64}`;
 const gtRobotDataUri = `data:image/webp;base64,${gtRobotWebpB64}`;
-const gtRobotJpgDataUri = `data:image/jpeg;base64,${gtRobotJpgB64}`;
+const gtRobotPngDataUri = `data:image/png;base64,${gtRobotPngB64}`;
 const logoDataUri = `data:image/webp;base64,${logoWebpB64}`;
 const sealDataUri = `data:image/webp;base64,${sealWebpB64}`;
 
 const replacements = [
-  ['./images/titan-gt-robot.webp', gtRobotDataUri],
-  ['./images/titan-gt-robot.jpg', gtRobotJpgDataUri],
-  ['/images/titan-gt-robot.webp', gtRobotDataUri],
-  ['/images/titan-gt-robot.jpg', gtRobotJpgDataUri],
-  ['images/titan-gt-robot.webp', gtRobotDataUri],
-  ['images/titan-gt-robot.jpg', gtRobotJpgDataUri],
+  ['./images/titan-gt-robot-cutout.webp', gtRobotDataUri],
+  ['./images/titan-gt-robot-cutout.png', gtRobotPngDataUri],
+  ['/images/titan-gt-robot-cutout.webp', gtRobotDataUri],
+  ['/images/titan-gt-robot-cutout.png', gtRobotPngDataUri],
+  ['images/titan-gt-robot-cutout.webp', gtRobotDataUri],
+  ['images/titan-gt-robot-cutout.png', gtRobotPngDataUri],
   ['./images/titan-hero-bot.webp', heroBotDataUri],
   ['./images/titan-hero-bot.jpg', heroBotJpgDataUri],
   ['/images/titan-hero-bot.webp', heroBotDataUri],
   ['/images/titan-hero-bot.jpg', heroBotJpgDataUri],
   ['images/titan-hero-bot.webp', heroBotDataUri],
   ['images/titan-hero-bot.jpg', heroBotJpgDataUri],
-  ['./images/titan-hero-box-closed.webp', heroClosedDataUri],
-  ['./images/titan-hero-box-closed.jpg', heroClosedJpgDataUri],
-  ['/images/titan-hero-box-closed.webp', heroClosedDataUri],
-  ['/images/titan-hero-box-closed.jpg', heroClosedJpgDataUri],
-  ['images/titan-hero-box-closed.webp', heroClosedDataUri],
-  ['images/titan-hero-box-closed.jpg', heroClosedJpgDataUri],
   ['./images/titan-hero-box.webp', heroDataUri],
   ['./images/titan-hero-box.jpg', heroJpgDataUri],
   ['/images/titan-hero-box.webp', heroDataUri],

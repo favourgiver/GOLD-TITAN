@@ -16,18 +16,25 @@ export function LaunchSlotsSection({
   const isAllocationFull = allocation.status === 'full';
 
   const remainingDisplay =
-    allocation.status === 'live' || allocation.status === 'full'
-      ? String(allocation.remainingSlots ?? 0)
-      : allocation.status === 'loading'
+    allocation.status === 'loading'
       ? '···'
+      : allocation.remainingSlots !== null
+      ? String(allocation.remainingSlots)
       : '--';
 
   const claimedDisplay =
-    allocation.status === 'live' || allocation.status === 'full'
-      ? String(allocation.claimedSlots ?? 0)
-      : allocation.status === 'loading'
+    allocation.status === 'loading'
       ? '···'
+      : allocation.claimedSlots !== null
+      ? String(allocation.claimedSlots)
       : '--';
+
+  // Live/full data comes from the server; the not-yet-connected backend shows
+  // the time-based placeholder cycle (1 claim every 2h, reset after 24h).
+  const hasSlotData =
+    allocation.status === 'live' ||
+    allocation.status === 'full' ||
+    (allocation.status === 'unconfigured' && allocation.claimedSlots !== null);
 
   return (
     <section
@@ -88,11 +95,12 @@ export function LaunchSlotsSection({
             >
               {Array.from({ length: 20 }).map((_, i) => {
                 const isClaimed =
-                  (allocation.status === 'live' || allocation.status === 'full') &&
+                  hasSlotData &&
                   allocation.claimedSlots !== null &&
                   i < allocation.claimedSlots;
                 const isLiveAvailable =
-                  allocation.status === 'live' &&
+                  hasSlotData &&
+                  allocation.status !== 'full' &&
                   allocation.claimedSlots !== null &&
                   i >= allocation.claimedSlots;
 

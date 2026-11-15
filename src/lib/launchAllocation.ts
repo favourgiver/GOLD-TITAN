@@ -39,14 +39,31 @@ interface LaunchAllocationRow {
   first_five_claimed: number;
 }
 
+/**
+ * Time-based placeholder cycle used until the live backend is connected:
+ * starts at 20 remaining / 0 claimed, adds 1 claimed (and 1 fewer remaining)
+ * every 2 hours, then resets to the start after 24 hours (12 steps).
+ */
+const SIM_STEP_MS = 2 * 60 * 60 * 1000;
+const SIM_CYCLE_STEPS = 12;
+
+function getSimulatedSlots(): { claimed: number; remaining: number } {
+  const step = Math.floor(Date.now() / SIM_STEP_MS) % SIM_CYCLE_STEPS;
+  return { claimed: step, remaining: 20 - step };
+}
+
 export function useLaunchAllocation(): LaunchAllocationState {
   const client = getSupabaseClient();
 
   const [status, setStatus] = useState<AllocationStatus>(() =>
     client ? 'loading' : 'unconfigured'
   );
-  const [claimedSlots, setClaimedSlots] = useState<number | null>(null);
-  const [remainingSlots, setRemainingSlots] = useState<number | null>(null);
+  const [claimedSlots, setClaimedSlots] = useState<number | null>(() =>
+    client ? null : getSimulatedSlots().claimed
+  );
+  const [remainingSlots, setRemainingSlots] = useState<number | null>(() =>
+    client ? null : getSimulatedSlots().remaining
+  );
   const [firstFiveClaimed, setFirstFiveClaimed] = useState<number | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
@@ -65,6 +82,9 @@ export function useLaunchAllocation(): LaunchAllocationState {
   const fetchAuthoritativeAllocation = useCallback(async () => {
     const sb = getSupabaseClient();
     if (!sb) {
+      const sim = getSimulatedSlots();
+      setClaimedSlots(sim.claimed);
+      setRemainingSlots(sim.remaining);
       setStatus('unconfigured');
       return;
     }
@@ -91,7 +111,14 @@ export function useLaunchAllocation(): LaunchAllocationState {
     const sb = getSupabaseClient();
     if (!sb) {
       setStatus('unconfigured');
-      return;
+      const tick = () => {
+        const sim = getSimulatedSlots();
+        setClaimedSlots(sim.claimed);
+        setRemainingSlots(sim.remaining);
+      };
+      tick();
+      const intervalId = window.setInterval(tick, 60 * 1000);
+      return () => window.clearInterval(intervalId);
     }
 
     void fetchAuthoritativeAllocation();

@@ -216,8 +216,9 @@ export const HOMEPAGE_COPY = {
     items: [
       {
         question: '1. What is GOLD TITAN?',
+        // User-directed override wording (MT4/MT5 mention removed)
         answer:
-          'GOLD TITAN is an automated gold-trading software solution designed to help traders automate its programmed trading strategy on the XAUUSD (Gold) market. It works with compatible MetaTrader 4 and MetaTrader 5 environments.',
+          'GOLD TITAN is an automated gold-trading software solution designed to help traders automate its programmed trading strategy on the XAUUSD (Gold) market. It works with compatible trading environments.',
       },
       {
         question: '2. Who is GOLD TITAN designed for?',
@@ -225,9 +226,10 @@ export const HOMEPAGE_COPY = {
           'GOLD TITAN is designed primarily with beginner and intermediate Forex traders in mind, particularly individuals aged 21-35 who are interested in gold trading and automated trading technology. However, anyone considering using the software should understand the risks associated with Forex and leveraged trading.',
       },
       {
-        question: '3. Does GOLD TITAN work with MT4 and MT5?',
+        // User-directed override wording (MT4/MT5 mention removed)
+        question: '3. Does GOLD TITAN work with my trading platform?',
         answer:
-          'Yes. GOLD TITAN has compatible versions for both MetaTrader 4 and MetaTrader 5. You can select the version that corresponds with your supported trading platform.',
+          'Yes. GOLD TITAN has compatible versions for supported trading platforms. You can select the version that corresponds with your supported trading platform.',
       },
       {
         question: '4. Do I need previous Forex trading experience?',

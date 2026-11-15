@@ -5,6 +5,9 @@ import { HOMEPAGE_COPY } from '../content/homepageCopy';
 export function FaqSection() {
   const { section8Faqs } = HOMEPAGE_COPY;
   const [openIndices, setOpenIndices] = useState<Set<number>>(() => new Set([0]));
+  // User-directed: show only 5 questions by default, with the option to show all 12.
+  const [showAll, setShowAll] = useState(false);
+  const visibleItems = showAll ? section8Faqs.items : section8Faqs.items.slice(0, 5);
 
   const toggleIndex = (idx: number) => {
     setOpenIndices((prev) => {
@@ -55,7 +58,7 @@ export function FaqSection() {
         </div>
 
         <div className="mt-12 divide-y divide-[#FFD000]/14 rounded-3xl border border-[#FFD000]/16 bg-[#111111]">
-          {section8Faqs.items.map((faq, idx) => {
+          {visibleItems.map((faq, idx) => {
             const isOpen = openIndices.has(idx);
             const panelId = `faq-answer-${idx + 1}`;
             const buttonId = `faq-question-${idx + 1}`;
@@ -99,6 +102,16 @@ export function FaqSection() {
               </div>
             );
           })}
+        </div>
+
+        <div className="mt-8 flex justify-center">
+          <button
+            type="button"
+            onClick={() => setShowAll((prev) => !prev)}
+            className="btn-outline-glow min-h-[42px] rounded-full border border-[#FFD000]/32 bg-[#12110C] px-5 py-2 font-mono text-xs tracking-[0.08em] text-[#FFD000] hover:border-[#FFD000]"
+          >
+            {showAll ? 'SHOW ONLY 5 QUESTIONS' : 'SHOW ALL 12 QUESTIONS'}
+          </button>
         </div>
       </div>
     </section>

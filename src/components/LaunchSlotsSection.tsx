@@ -50,7 +50,18 @@ export function LaunchSlotsSection({
               {launchSlots.subheadline}
             </h2>
             <p className="mx-auto mt-4 max-w-[650px] text-[16px] leading-[1.68] text-[#B8B2A7]">
-              {launchSlots.body}
+              {(() => {
+                // User-directed yellow accent for 'CHRISTMAS OFFER'
+                const accent = 'CHRISTMAS OFFER';
+                const [before, ...rest] = launchSlots.body.split(accent);
+                return (
+                  <>
+                    {before}
+                    <span className="font-semibold text-[#FFD000]">{accent}</span>
+                    {rest.join(accent)}
+                  </>
+                );
+              })()}
             </p>
           </div>
 

@@ -281,13 +281,16 @@ export const HOMEPAGE_COPY = {
   },
 
   finalCta: {
-    heading: 'Your Time Is Valuable. Make Your Trading Routine More Convenient.',
+    // User-directed override heading
+    heading: 'Will You Embrace The New Era of Trading?',
+    // User-directed override paragraphs
     paragraphs: [
-      "You don't have to spend every waking hour watching the gold market.",
-      'Discover a more automated approach to XAUUSD trading with GOLD TITAN.',
-      "Whether you're just beginning your trading journey or looking for additional automation tools, your next step starts here.",
+      'You can keep doing everything manually and wait until you feel the need for automation. Or you can start exploring it now.',
+      'We believe automated trading technology will continue to play an important role in how people approach trading.',
+      'So take your place with GOLD TITAN.',
     ],
-    cta: 'GET STARTED WITH GOLD TITAN',
+    // User-directed override CTA
+    cta: 'Get Access to GOLD TITAN',
     tagline: 'GOLD TITAN - Gold Trading. Automated. Simplified.',
   },
 

@@ -233,11 +233,20 @@
   }
 }
 
-/* Continuous product-strengths ticker band directly under the hero */
+/* Continuous product-strengths ticker band directly under the hero,
+   tilted to 170°: left end lower, right end higher. Band is slightly
+   oversized so the rotated strip still covers the full viewport width. */
+.titan-ticker-band {
+  width: 104vw;
+  margin-left: -2vw;
+  transform: rotate(-10deg);
+  will-change: transform;
+}
+
 .titan-ticker-track {
   display: flex;
   width: max-content;
-  animation: titan-marquee 22s linear infinite;
+  animation: titan-marquee 44s linear infinite;
   will-change: transform;
 }
 

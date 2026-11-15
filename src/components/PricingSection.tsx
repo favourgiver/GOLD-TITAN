@@ -269,7 +269,7 @@ export function PricingSection({ allocation, onOpenSubscribeModal }: PricingSect
               </p>
             </div>
 
-            <div className="lg:col-span-5 rounded-2xl border border-[#FFD000]/16 bg-[#0B0A08] p-5">
+            <div className="lg:col-span-5 rounded-2xl border border-red-500/60 bg-[#0B0A08] p-5">
               <p className="text-[13.5px] sm:text-[14px] leading-[1.65] text-[#AAA49A]">
                 {section7Pricing.bonus03.disclaimer}
               </p>

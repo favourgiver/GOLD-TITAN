@@ -169,7 +169,8 @@ export const HOMEPAGE_COPY = {
     bonus01: {
       title: 'BONUS 01 - FIRST FIVE SUBSCRIBERS',
       subheadline: 'GET 30% OFF YOUR FIRST MONTH!',
-      body: "We're rewarding our first five subscribers with an exclusive launch discount. Regular price: $50. Your discounted price: $35. You save $15! This offer is available only to the first five qualifying subscribers.",
+      // User-directed override wording ('launch' removed)
+      body: "We're rewarding our first five subscribers of the month with an exclusive discount. Regular price: $50. Your discounted price: $35. You save $15! This offer is available only to the first five qualifying subscribers.",
     },
     bonus02: {
       title: 'BONUS 02 - MULTI-MONTH SUBSCRIPTION',
@@ -184,11 +185,13 @@ export const HOMEPAGE_COPY = {
     },
     launchDetailsHeading: 'Bonus access and launch availability',
     bonus03: {
-      title: 'BONUS 03 - ONE EXTRA MONTH ON US',
+      // User-directed override title
+      title: 'GUARANTEE',
       subheadline: 'A LITTLE MORE CONFIDENCE IN YOUR FIRST MONTH.',
       body: 'If your qualifying GOLD TITAN trades do not generate a net profit during your first 30 days, you will receive one additional month of GOLD TITAN software access at no additional subscription charge.',
+      // User-directed override wording
       disclaimer:
-        'This is an extension of your software subscription, not a refund or compensation for trading losses. Trading capital remains at risk, and no trading profit is guaranteed. Eligibility and calculation rules will be provided in the offer terms.',
+        'This is an extension of your software subscription, not a refund or compensation for trading losses. Trading capital remains at risk, and no trading profit is guaranteed.',
     },
     launchSlots: {
       title: 'YOUR EARLY-ACCESS LAUNCH SLOTS',

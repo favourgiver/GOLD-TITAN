@@ -20,7 +20,7 @@ export function ProblemSection() {
         <div className="max-w-[760px]">
           <h2
             id="problem-heading"
-            className="text-[1.95rem] sm:text-[2.45rem] lg:text-[2.75rem] font-semibold leading-[1.1] tracking-[-0.025em] text-[#F5F2EA]"
+            className="text-[2.15rem] sm:text-[2.65rem] lg:text-[2.95rem] font-semibold leading-[1.1] tracking-[-0.025em] text-[#F5F2EA]"
           >
             {section2Problem.heading}
           </h2>
@@ -35,7 +35,7 @@ export function ProblemSection() {
                   aria-hidden="true"
                   className="mt-0.5 h-5 w-5 sm:h-6 sm:w-6 shrink-0 stroke-[2.5] text-[#FFD000]"
                 />
-                <span className="text-[17px] sm:text-[19px] font-medium leading-snug tracking-[-0.01em] text-[#F5F2EA]">
+                <span className="text-[15px] sm:text-[16px] font-normal leading-snug text-[#D8D2C6]">
                   {point}
                 </span>
               </li>

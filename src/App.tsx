@@ -6,7 +6,6 @@ import { HeroTicker } from './components/HeroTicker';
 import { ProblemSection } from './components/ProblemSection';
 import { SolutionSection } from './components/SolutionSection';
 import { HowItWorksSection } from './components/HowItWorksSection';
-import { WhyGoldTitanSection } from './components/WhyGoldTitanSection';
 import { TechnologySection } from './components/TechnologySection';
 import { PricingSection, type PlanTermMonths } from './components/PricingSection';
 import { LaunchSlotsSection } from './components/LaunchSlotsSection';
@@ -43,7 +42,6 @@ export function App() {
         <ProblemSection />
         <SolutionSection />
         <HowItWorksSection />
-        <WhyGoldTitanSection />
         <TechnologySection />
         <PricingSection
           allocation={allocation}

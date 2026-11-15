@@ -69,7 +69,7 @@ export function SolutionSection() {
             <div className="h-px flex-1 bg-[#FFD000]/16" aria-hidden="true" />
           </div>
 
-          <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {section3Solution.appealingItems.map((item) => (
               <div
                 key={item.lead}

@@ -14,7 +14,6 @@ export const HOMEPAGE_COPY = {
   nav: {
     links: [
       { label: 'How It Works', href: '#how-it-works' },
-      { label: 'Why GOLD TITAN', href: '#why-gold-titan' },
       { label: 'Pricing', href: '#pricing' },
       { label: 'FAQs', href: '#faqs' },
     ],
@@ -87,16 +86,13 @@ export const HOMEPAGE_COPY = {
         detail: 'The software follows its programmed trading rules.',
       },
       {
-        lead: 'MT4 and MT5 compatibility:',
-        detail: 'Compatible versions for both supported platforms.',
-      },
-      {
-        lead: 'Convenient setup:',
-        detail: 'No separate VPS purchase or configuration required.',
-      },
-      {
         lead: 'Flexible subscription:',
         detail: 'Access the software through a straightforward monthly subscription.',
+      },
+      {
+        lead: 'Spend Less Time Watching Charts:',
+        detail:
+          'Reduce the amount of time you spend monitoring the market and manually executing trades.',
       },
     ],
     cta: 'DISCOVER GOLD TITAN',
@@ -134,45 +130,6 @@ export const HOMEPAGE_COPY = {
       'No separate VPS is required.',
     ],
     cta: 'GET STARTED TODAY',
-  },
-
-  section5WhyGoldTitan: {
-    overline: 'Why GOLD TITAN?',
-    heading: 'Why GOLD TITAN?',
-    intro:
-      "We're bringing gold-trading automation and convenience together in one software solution.",
-    items: [
-      {
-        title: '01. Dedicated Gold Trading',
-        body: 'GOLD TITAN is designed specifically for XAUUSD traders.',
-      },
-      {
-        title: '02. MT4 and MT5 Compatibility',
-        body: 'Choose the compatible version for your preferred MetaTrader platform.',
-      },
-      {
-        title: '03. Automated Trading Execution',
-        body: "Let predefined trading rules guide the software's trading activity instead of manually executing every trade.",
-      },
-      {
-        title: '04. Spend Less Time Watching Charts',
-        body: 'Reduce the amount of time you spend monitoring the market and manually executing trades.',
-      },
-      {
-        title: '05. No Separate VPS Required',
-        body: "There's no need to purchase or configure an additional VPS. The required setup has already been handled for GOLD TITAN.",
-      },
-      {
-        title: '06. Accessible Subscription Model',
-        body: 'Get started with a monthly subscription of just $50, with additional savings available through our multi-month offer.',
-      },
-      {
-        title: '07. Designed with Developing Traders in Mind',
-        body: "Whether you're a beginner learning about automated trading or an intermediate trader looking for additional tools, GOLD TITAN gives you a way to explore gold-trading automation.",
-      },
-    ],
-    closing:
-      'GOLD TITAN is about making automated gold trading more accessible, convenient and straightforward.',
   },
 
   section6Technology: {

@@ -84,9 +84,6 @@ export function FinalCtaAndFooter() {
             <a href="#how-it-works" className="hover:text-[#FFD000] transition-colors">
               How It Works
             </a>
-            <a href="#why-gold-titan" className="hover:text-[#FFD000] transition-colors">
-              Why GOLD TITAN
-            </a>
             <a href="#technology" className="hover:text-[#FFD000] transition-colors">
               Get to Know the Technology
             </a>

@@ -42,6 +42,12 @@ export function LaunchSlotsSection({
       aria-labelledby="launch-slots-heading"
       className="relative scroll-mt-20 border-t border-[#FFD000]/16 bg-[#0B0A08] py-20 sm:py-24 lg:py-32"
     >
+      {/* Slow randomly-drifting golden gradient backdrop, kept under this section's content */}
+      <div aria-hidden="true" className="titan-ambient">
+        <div className="titan-ambient-blob titan-ambient-blob-a" />
+        <div className="titan-ambient-blob titan-ambient-blob-b" />
+      </div>
+
       <div
         aria-hidden="true"
         className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[420px] w-[680px] rounded-full bg-[radial-gradient(circle,rgba(255,208,0,0.09)_0%,transparent_72%)] blur-3xl"

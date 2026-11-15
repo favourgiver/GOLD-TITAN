@@ -27,11 +27,7 @@ export function App() {
 
   return (
     <div className="min-h-screen bg-[#070707] text-[#F5F2EA]">
-      {/* Slow randomly-drifting golden gradient background + subtle noise grain */}
-      <div aria-hidden="true" className="titan-ambient">
-        <div className="titan-ambient-blob titan-ambient-blob-a" />
-        <div className="titan-ambient-blob titan-ambient-blob-b" />
-      </div>
+      {/* Subtle noise grain (moving golden gradient backdrop lives inside each section, under its content) */}
       <div aria-hidden="true" className="titan-noise" />
 
       <a

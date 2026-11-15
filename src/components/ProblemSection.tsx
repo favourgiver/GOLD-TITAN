@@ -11,6 +11,12 @@ export function ProblemSection() {
       aria-labelledby="problem-heading"
       className="relative border-t border-[#FFD000]/14 bg-[#0B0A08] pt-10 pb-20 sm:pt-12 sm:pb-24 lg:pt-16 lg:pb-32"
     >
+      {/* Slow randomly-drifting golden gradient backdrop, kept under this section's content */}
+      <div aria-hidden="true" className="titan-ambient">
+        <div className="titan-ambient-blob titan-ambient-blob-a" />
+        <div className="titan-ambient-blob titan-ambient-blob-b" />
+      </div>
+
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#FFD000]/45 to-transparent"
@@ -19,7 +25,7 @@ export function ProblemSection() {
       {/* Moving 'Automated Trading / Specialized in XAUUSD (GOLD)' ticker placed over the top of this section (per user direction) */}
       <HeroTicker />
 
-      <div className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
         {/* Left-side paragraph layout: heading, intro, X-marked pain points, closing line */}
         <div className="max-w-[760px]">
           <h2

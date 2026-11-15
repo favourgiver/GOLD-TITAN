@@ -37,7 +37,13 @@ export function FaqSection() {
       aria-labelledby="faqs-heading"
       className="relative scroll-mt-20 border-t border-[#FFD000]/14 bg-[#070707] py-20 sm:py-24 lg:py-32"
     >
-      <div className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
+      {/* Slow randomly-drifting golden gradient backdrop, kept under this section's content */}
+      <div aria-hidden="true" className="titan-ambient">
+        <div className="titan-ambient-blob titan-ambient-blob-a" />
+        <div className="titan-ambient-blob titan-ambient-blob-b" />
+      </div>
+
+      <div className="relative mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
           <div>
             <h2

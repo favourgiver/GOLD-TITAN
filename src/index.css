@@ -228,10 +228,13 @@
    Ambient golden gradient background in slow random motion,
    plus a subtle noise-grain overlay across the screen
    ------------------------------------------------------------------ */
+/* Per-section golden gradient backdrop: absolutely fills its section and
+   sits UNDER the section's texts, boxes, characters and images (z-index 0,
+   content containers above it are positioned so they always paint on top) */
 .titan-ambient {
-  position: fixed;
+  position: absolute;
   inset: 0;
-  z-index: 1;
+  z-index: 0;
   pointer-events: none;
   overflow: hidden;
   mix-blend-mode: screen;

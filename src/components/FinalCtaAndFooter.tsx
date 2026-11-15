@@ -12,7 +12,13 @@ export function FinalCtaAndFooter() {
         aria-labelledby="final-cta-heading"
         className="relative border-t border-[#FFD000]/14 bg-[#0B0A08] pt-20 pb-16 sm:pt-24 sm:pb-20 lg:pt-32 lg:pb-24"
       >
-        <div className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
+        {/* Slow randomly-drifting golden gradient backdrop, kept under this section's content */}
+        <div aria-hidden="true" className="titan-ambient">
+          <div className="titan-ambient-blob titan-ambient-blob-a" />
+          <div className="titan-ambient-blob titan-ambient-blob-b" />
+        </div>
+
+        <div className="relative mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
           <div className="relative overflow-hidden rounded-3xl border border-[#FFD000]/35 bg-gradient-to-br from-[#191811] via-[#11100C] to-[#080807] px-6 py-12 sm:px-12 sm:py-16 lg:px-16 lg:py-20 text-center">
             <div
               aria-hidden="true"

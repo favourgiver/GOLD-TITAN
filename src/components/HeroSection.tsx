@@ -52,14 +52,20 @@ export function HeroSection() {
       aria-labelledby="hero-heading"
       className="relative overflow-hidden bg-[#070707] pt-8 pb-8 sm:pt-12 sm:pb-12 lg:pt-14 lg:pb-14"
     >
+      {/* Slow randomly-drifting golden gradient backdrop, kept under this section's content */}
+      <div aria-hidden="true" className="titan-ambient">
+        <div className="titan-ambient-blob titan-ambient-blob-a" />
+        <div className="titan-ambient-blob titan-ambient-blob-b" />
+      </div>
+
       {/* Subtle yellow studio glow behind hero stage */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -top-32 right-[4%] h-[560px] w-[560px] rounded-full bg-[radial-gradient(circle,rgba(255,208,0,0.12)_0%,rgba(255,208,0,0.03)_42%,transparent_72%)] blur-2xl"
       />
 
-      <div className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-10">
+      <div className="relative mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
+        <div className="relative grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-10">
           {/* Left Editorial Column */}
           <div className="relative z-10 lg:col-span-7">
             <div className="mb-6 flex flex-wrap items-center gap-2.5">

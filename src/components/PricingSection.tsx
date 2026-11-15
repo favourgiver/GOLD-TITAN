@@ -19,6 +19,12 @@ export function PricingSection({ allocation, onOpenSubscribeModal }: PricingSect
       aria-labelledby="pricing-heading"
       className="relative scroll-mt-20 border-t border-[#FFD000]/14 bg-[#070707] py-20 sm:py-24 lg:py-32"
     >
+      {/* Slow randomly-drifting golden gradient backdrop, kept under this section's content */}
+      <div aria-hidden="true" className="titan-ambient">
+        <div className="titan-ambient-blob titan-ambient-blob-a" />
+        <div className="titan-ambient-blob titan-ambient-blob-b" />
+      </div>
+
       <div
         aria-hidden="true"
         className="pointer-events-none absolute top-32 left-1/2 -translate-x-1/2 h-[500px] w-[780px] rounded-full bg-[radial-gradient(circle,rgba(255,208,0,0.08)_0%,transparent_70%)] blur-3xl"

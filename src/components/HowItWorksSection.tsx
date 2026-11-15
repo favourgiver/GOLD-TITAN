@@ -10,7 +10,13 @@ export function HowItWorksSection() {
       aria-labelledby="how-it-works-heading"
       className="relative scroll-mt-20 border-t border-[#FFD000]/14 bg-[#0B0A08] py-20 sm:py-24 lg:py-28"
     >
-      <div className="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
+      {/* Slow randomly-drifting golden gradient backdrop, kept under this section's content */}
+      <div aria-hidden="true" className="titan-ambient">
+        <div className="titan-ambient-blob titan-ambient-blob-a" />
+        <div className="titan-ambient-blob titan-ambient-blob-b" />
+      </div>
+
+      <div className="relative mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-[760px] rounded-3xl border border-[#FFD000]/22 bg-[#11100D] px-6 py-12 sm:px-12 sm:py-16 text-center">
           <h2
             id="how-it-works-heading"

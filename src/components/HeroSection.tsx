@@ -1,8 +1,43 @@
+import { useEffect, useState } from 'react';
 import { ArrowDownRight, ArrowUpRight } from 'lucide-react';
 import { HOMEPAGE_COPY } from '../content/homepageCopy';
 
+function usePrefersReducedMotion() {
+  const [reduced, setReduced] = useState(false);
+
+  useEffect(() => {
+    const query = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setReduced(query.matches);
+    const onChange = (event: MediaQueryListEvent) => setReduced(event.matches);
+    query.addEventListener('change', onChange);
+    return () => query.removeEventListener('change', onChange);
+  }, []);
+
+  return reduced;
+}
+
 export function HeroSection() {
   const { section1Hero } = HOMEPAGE_COPY;
+  const slides = section1Hero.slides;
+
+  const [{ active, prev }, setSlideState] = useState({ active: 0, prev: -1 });
+  const [paused, setPaused] = useState(false);
+  const reducedMotion = usePrefersReducedMotion();
+
+  // Auto-swap the two hero slides every 5 seconds (swiping to the left)
+  useEffect(() => {
+    if (paused || reducedMotion) return;
+    const id = window.setInterval(() => {
+      setSlideState((s) => ({ prev: s.active, active: (s.active + 1) % slides.length }));
+    }, 5000);
+    return () => window.clearInterval(id);
+  }, [paused, reducedMotion, slides.length]);
+
+  const slidePosClass = (idx: number) => {
+    if (idx === active) return 'translate-x-0 opacity-100';
+    if (idx === prev) return '-translate-x-8 opacity-0 pointer-events-none';
+    return 'translate-x-8 opacity-0 pointer-events-none';
+  };
 
   return (
     <section
@@ -25,31 +60,27 @@ export function HeroSection() {
                 <span className="h-1.5 w-1.5 rounded-full bg-[#FFD000]" aria-hidden="true" />
                 XAUUSD
               </span>
-              <span className="inline-flex items-center rounded-full border border-[#FFD000]/16 bg-[#0E0E0E] px-3.5 py-1 font-mono text-[11px] tracking-[0.1em] text-[#AAA49A]">
-                MT4 &amp; MT5
-              </span>
             </div>
 
-            <h1
-              id="hero-heading"
-              className="text-[2.25rem] sm:text-[3.1rem] lg:text-[3.75rem] xl:text-[4.1rem] font-semibold leading-[1.05] tracking-[-0.03em] text-[#F5F2EA]"
-            >
-              Stop Watching the Charts. Start Trading Smarter with{' '}
-              <span className="bg-gradient-to-r from-[#FFF078] via-[#FFD000] to-[#FDE047] bg-clip-text text-transparent">
-                GOLD TITAN.
-              </span>
-            </h1>
-
-            <div className="mt-6 max-w-[610px] space-y-4 text-[16px] sm:text-[17px] leading-[1.65] text-[#B8B2A7]">
-              <p className="text-[#E5E0D5] font-normal">{section1Hero.paragraphs[0]}</p>
-              <p>{section1Hero.paragraphs[1]}</p>
-              <p className="inline-flex items-center gap-2.5 pt-1 font-medium text-[#FFD000]">
-                <span
-                  aria-hidden="true"
-                  className="inline-block h-[1.5px] w-5 bg-[#FFD000]"
-                />
-                {section1Hero.paragraphs[2]}
-              </p>
+            {/* Alternating slide messages, synced with the hero visuals */}
+            <div className="grid">
+              {slides.map((slide, idx) => (
+                <div
+                  key={slide.headline}
+                  aria-hidden={idx !== active}
+                  className={`col-start-1 row-start-1 transition-[transform,opacity] duration-700 ease-out ${slidePosClass(idx)}`}
+                >
+                  <h1
+                    id={idx === active ? 'hero-heading' : undefined}
+                    className="text-[2.25rem] sm:text-[3.1rem] lg:text-[3.75rem] xl:text-[4.1rem] font-bold leading-[1.05] tracking-[-0.03em] text-[#F5F2EA]"
+                  >
+                    {slide.headline}
+                  </h1>
+                  <p className="mt-6 max-w-[610px] text-[16px] sm:text-[17px] font-medium leading-[1.65] text-[#D8D2C6]">
+                    {slide.tagline}
+                  </p>
+                </div>
+              ))}
             </div>
 
             {/* Dual Glowing CTA Stack */}
@@ -72,67 +103,105 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Right Hero Visual: Bonus Box Opening Reveal (starts closed, opens on load) */}
-          <div className="relative lg:col-span-5">
+          {/* Right Hero Visuals: alternating floating slides */}
+          <div
+            className="relative lg:col-span-5"
+            onMouseEnter={() => setPaused(true)}
+            onMouseLeave={() => setPaused(false)}
+            onFocusCapture={() => setPaused(true)}
+            onBlurCapture={() => setPaused(false)}
+          >
             <div className="relative mx-auto max-w-[460px] lg:max-w-none">
               <div className="relative overflow-hidden rounded-3xl border border-[#FFD000]/20 bg-black shadow-[0_24px_80px_-20px_rgba(0,0,0,0.9)]">
-                <div className="relative">
-                  {/* Final frame: the revealed open box with bonus coupons & gold bars */}
-                  <picture>
-                    <source
-                      srcSet={`${import.meta.env.BASE_URL}images/titan-hero-box.webp`}
-                      type="image/webp"
-                    />
-                    <img
-                      src={`${import.meta.env.BASE_URL}images/titan-hero-box.jpg`}
-                      alt="GOLD TITAN bonus box opening to reveal a 20% OFF coupon, a 30% OFF coupon and gold bars"
-                      width={1066}
-                      height={1008}
-                      loading="eager"
-                      decoding="async"
-                      className="titan-hero-open relative z-10 mx-auto h-[390px] sm:h-[470px] lg:h-[520px] w-full object-cover object-center select-none"
-                    />
-                  </picture>
-
-                  {/* Opening choreography layers (hidden to screen readers) */}
-                  <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-20">
-                    {/* Closed box: body half (kept below the lid seam) */}
-                    <div className="titan-hero-closed-body absolute inset-0 [clip-path:inset(50%_0_0_0)]">
+                <div className="grid">
+                  {/* Slide 1: Bonus box (closed -> opens on load) with bonus coupons & gold bars */}
+                  <div
+                    aria-hidden={active !== 0}
+                    className={`col-start-1 row-start-1 relative h-[390px] sm:h-[470px] lg:h-[520px] w-full transition-[transform,opacity] duration-700 ease-out ${slidePosClass(0)}`}
+                  >
+                    <div className="titan-hero-float absolute inset-0">
+                      {/* Final frame: the revealed open box with bonus coupons & gold bars */}
                       <picture>
                         <source
-                          srcSet={`${import.meta.env.BASE_URL}images/titan-hero-box-closed.webp`}
+                          srcSet={`${import.meta.env.BASE_URL}images/titan-hero-box.webp`}
                           type="image/webp"
                         />
                         <img
-                          src={`${import.meta.env.BASE_URL}images/titan-hero-box-closed.jpg`}
-                          alt=""
+                          src={`${import.meta.env.BASE_URL}images/titan-hero-box.jpg`}
+                          alt="GOLD TITAN bonus box opening to reveal a 20% OFF coupon, a 30% OFF coupon and gold bars"
                           width={1066}
                           height={1008}
                           loading="eager"
                           decoding="async"
-                          className="h-full w-full object-cover object-center select-none"
+                          className="titan-hero-open absolute inset-0 h-full w-full object-cover object-center select-none"
                         />
                       </picture>
+
+                      {/* Opening choreography layers (hidden to screen readers) */}
+                      <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-20">
+                        {/* Closed box: body half (kept below the lid seam) */}
+                        <div className="titan-hero-closed-body absolute inset-0 [clip-path:inset(50%_0_0_0)]">
+                          <picture>
+                            <source
+                              srcSet={`${import.meta.env.BASE_URL}images/titan-hero-box-closed.webp`}
+                              type="image/webp"
+                            />
+                            <img
+                              src={`${import.meta.env.BASE_URL}images/titan-hero-box-closed.jpg`}
+                              alt=""
+                              width={1066}
+                              height={1008}
+                              loading="eager"
+                              decoding="async"
+                              className="h-full w-full object-cover object-center select-none"
+                            />
+                          </picture>
+                        </div>
+
+                        {/* Golden flash as the box opens */}
+                        <div className="titan-hero-flash absolute left-1/2 top-[56%] h-[42%] w-[68%] -translate-x-1/2 -translate-y-1/2 rounded-[100%] bg-[radial-gradient(closest-side,rgba(255,240,120,0.55)_0%,rgba(255,208,0,0.28)_38%,transparent_72%)] blur-md" />
+
+                        {/* Closed box: lid half (lifts off) */}
+                        <div className="titan-hero-closed-lid absolute inset-0 [clip-path:inset(0_0_49%_0)]">
+                          <picture>
+                            <source
+                              srcSet={`${import.meta.env.BASE_URL}images/titan-hero-box-closed.webp`}
+                              type="image/webp"
+                            />
+                            <img
+                              src={`${import.meta.env.BASE_URL}images/titan-hero-box-closed.jpg`}
+                              alt=""
+                              width={1066}
+                              height={1008}
+                              loading="eager"
+                              decoding="async"
+                              className="h-full w-full object-cover object-center select-none"
+                            />
+                          </picture>
+                        </div>
+                      </div>
                     </div>
+                  </div>
 
-                    {/* Golden flash as the box opens */}
-                    <div className="titan-hero-flash absolute left-1/2 top-[56%] h-[42%] w-[68%] -translate-x-1/2 -translate-y-1/2 rounded-[100%] bg-[radial-gradient(closest-side,rgba(255,240,120,0.55)_0%,rgba(255,208,0,0.28)_38%,transparent_72%)] blur-md" />
-
-                    {/* Closed box: lid half (lifts off) */}
-                    <div className="titan-hero-closed-lid absolute inset-0 [clip-path:inset(0_0_49%_0)]">
+                  {/* Slide 2: Trading bot */}
+                  <div
+                    aria-hidden={active !== 1}
+                    className={`col-start-1 row-start-1 relative h-[390px] sm:h-[470px] lg:h-[520px] w-full transition-[transform,opacity] duration-700 ease-out ${slidePosClass(1)}`}
+                  >
+                    <div className="titan-hero-float absolute inset-0">
                       <picture>
                         <source
-                          srcSet={`${import.meta.env.BASE_URL}images/titan-hero-box-closed.webp`}
+                          srcSet={`${import.meta.env.BASE_URL}images/titan-hero-bot.webp`}
                           type="image/webp"
                         />
                         <img
-                          src={`${import.meta.env.BASE_URL}images/titan-hero-box-closed.jpg`}
-                          alt=""
+                          src={`${import.meta.env.BASE_URL}images/titan-hero-bot.jpg`}
+                          alt="GOLD TITAN trading bot with a glowing candlestick chart visor and an XAU/USD gold coin"
                           width={1066}
                           height={1008}
                           loading="eager"
                           decoding="async"
-                          className="h-full w-full object-cover object-center select-none"
+                          className="absolute inset-0 h-full w-full object-cover object-center select-none"
                         />
                       </picture>
                     </div>

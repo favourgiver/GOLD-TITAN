@@ -210,3 +210,25 @@
     display: none;
   }
 }
+
+/* Continuous gentle floating motion for the hero visuals */
+.titan-hero-float {
+  animation: titan-hero-float 5.5s ease-in-out 2.4s infinite;
+  will-change: transform;
+}
+
+@keyframes titan-hero-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .titan-hero-float {
+    animation: none;
+  }
+}

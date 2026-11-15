@@ -7,8 +7,9 @@
 export const HOMEPAGE_COPY = {
   brand: 'GOLD TITAN',
 
+  // User-directed override: Christmas promotion wording
   announcementBar:
-    'GOLD TITAN LAUNCH OFFER - First 5 subscribers get 30% OFF their first month!',
+    'LIMITED CHRISTMAS DISCOUNT - First 5 subscribers get 30% OFF their first month!',
 
   nav: {
     links: [
@@ -21,11 +22,17 @@ export const HOMEPAGE_COPY = {
   },
 
   section1Hero: {
-    headline: 'Stop Watching the Charts. Start Trading Smarter with GOLD TITAN.',
-    paragraphs: [
-      'Meet GOLD TITAN - your automated gold-trading solution, designed to make your XAUUSD trading experience more convenient.',
-      "Whether you're a beginner taking your first steps into Forex or an intermediate trader looking for a more automated approach, GOLD TITAN helps you automate your gold-trading routine without spending your entire day monitoring charts.",
-      'Compatible with MetaTrader 4 and MetaTrader 5.',
+    // User-directed override: alternating hero slides (shown beside the hero visuals)
+    slides: [
+      {
+        headline: 'Enjoy your 20%/30% discount.',
+        tagline:
+          'You could enjoy 30% discount if you are one of the first 5 subscribers in December & 20% discount if you pay for more than a month at once.',
+      },
+      {
+        headline: 'A Bot that trades for you.',
+        tagline: "Let Titan analyze and trade automatically for you, even when you don't know how.",
+      },
     ],
     primaryCta: 'GET STARTED WITH GOLD TITAN',
     secondaryCta: 'DISCOVER HOW IT WORKS',

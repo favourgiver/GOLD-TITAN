@@ -1,4 +1,4 @@
-import { ArrowUpRight, Check } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { HOMEPAGE_COPY } from '../content/homepageCopy';
 import type { LaunchAllocationState } from '../lib/launchAllocation';
 
@@ -54,9 +54,11 @@ export function PricingSection({ allocation, onOpenSubscribeModal }: PricingSect
               <h3 className="text-[20px] sm:text-[23px] font-semibold tracking-[-0.015em] text-[#F5F2EA]">
                 {section7Pricing.standardPlan.name}
               </h3>
-              <p className="mt-2.5 flex items-start gap-2.5 text-[15px] sm:text-[15.5px] leading-[1.6] text-[#B8B2A7]">
-                <Check className="mt-1 h-4 w-4 shrink-0 text-[#FFD000]" aria-hidden="true" />
-                <span>{section7Pricing.standardPlan.inclusions}</span>
+              <p className="mt-2.5 text-[15px] sm:text-[15.5px] leading-[1.6] font-medium text-[#FDE047]">
+                {section7Pricing.standardPlan.discountNote}
+              </p>
+              <p className="mt-2 text-[15px] sm:text-[15.5px] leading-[1.6] text-[#B8B2A7]">
+                {section7Pricing.standardPlan.inclusions}
               </p>
             </div>
 
@@ -65,6 +67,9 @@ export function PricingSection({ allocation, onOpenSubscribeModal }: PricingSect
                 <span className="sm:hidden block font-mono text-[10px] tracking-[0.14em] text-[#AAA49A] mb-1">
                   {section7Pricing.standardPlan.columnHeaderRight}
                 </span>
+                <div className="sm:text-right text-sm font-light line-through text-[#AAA49A]">
+                  {section7Pricing.standardPlan.wasPrice}
+                </div>
                 <div className="text-[2rem] sm:text-[2.35rem] font-semibold tracking-[-0.03em] text-[#F5F2EA]">
                   {section7Pricing.standardPlan.price}
                 </div>

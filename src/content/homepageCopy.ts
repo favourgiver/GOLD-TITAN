@@ -152,14 +152,18 @@ export const HOMEPAGE_COPY = {
   section7Pricing: {
     overline: 'Pricing, bonuses and launch availability',
     heading: 'Get Started with GOLD TITAN for Just $50.',
+    // User-directed override wording
     intro:
-      'Your opportunity to explore automated gold trading starts here. Choose your subscription, enjoy our introductory launch offers and get access to GOLD TITAN.',
+      "You can get a 30% discount if you're one of the first 5 to subscribe this month",
     standardPlan: {
       columnHeaderLeft: 'STANDARD MONTHLY SUBSCRIPTION',
       columnHeaderRight: 'PRICE',
       name: 'GOLD TITAN - one month of software access',
-      price: '$50 / month',
-      inclusions: 'Includes compatible MT4 or MT5 version and installation/setup instructions.',
+      // User-directed override: discounted display price with struck regular price
+      wasPrice: '$50',
+      price: '$35 / month',
+      discountNote: 'The discount is over after 5 slots are taken',
+      inclusions: 'Experience the joys of automated trading',
       cta: 'SUBSCRIBE NOW',
     },
     bonus01: {

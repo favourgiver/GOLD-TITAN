@@ -43,7 +43,7 @@ export function HeroSection() {
     <section
       id="top"
       aria-labelledby="hero-heading"
-      className="relative overflow-hidden bg-[#070707] pt-8 pb-16 sm:pt-12 sm:pb-24 lg:pt-14 lg:pb-28"
+      className="relative overflow-hidden bg-[#070707] pt-8 pb-8 sm:pt-12 sm:pb-12 lg:pt-14 lg:pb-14"
     >
       {/* Subtle yellow studio glow behind hero stage */}
       <div

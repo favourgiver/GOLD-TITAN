@@ -7,7 +7,7 @@ export function ProblemSection() {
     <section
       id="the-problem"
       aria-labelledby="problem-heading"
-      className="relative border-t border-[#FFD000]/14 bg-[#0B0A08] py-20 sm:py-24 lg:py-32"
+      className="relative border-t border-[#FFD000]/14 bg-[#0B0A08] pt-10 pb-20 sm:pt-12 sm:pb-24 lg:pt-16 lg:pb-32"
     >
       <div
         aria-hidden="true"

@@ -1,4 +1,4 @@
-import { AlertCircle, ArrowUpRight, Database, Lock, RefreshCw } from 'lucide-react';
+import { AlertCircle, ArrowUpRight, Lock, RefreshCw } from 'lucide-react';
 import { HOMEPAGE_COPY } from '../content/homepageCopy';
 import type { LaunchAllocationState } from '../lib/launchAllocation';
 import type { PlanTermMonths } from './PricingSection';
@@ -43,9 +43,6 @@ export function LaunchSlotsSection({
       <div className="relative mx-auto max-w-[920px] px-4 sm:px-6 lg:px-8">
         <div className="rounded-3xl border border-[#FFD000]/35 bg-gradient-to-b from-[#171610] to-[#0E0D0A] p-7 sm:p-10 lg:p-12">
           <div className="text-center">
-            <p className="font-mono text-xs font-semibold tracking-[0.16em] text-[#FFD000]">
-              {launchSlots.title}
-            </p>
             <h2
               id="launch-slots-heading"
               className="mt-3 text-[1.95rem] sm:text-[2.5rem] lg:text-[2.8rem] font-semibold leading-[1.08] tracking-[-0.025em] text-[#F5F2EA]"
@@ -105,16 +102,6 @@ export function LaunchSlotsSection({
 
             {/* Honest Backend Connection / Error / Sold-Out Status */}
             <div className="mt-5 flex flex-wrap items-center justify-between gap-2 pt-4 border-t border-[#FFD000]/12 text-xs">
-              {allocation.status === 'unconfigured' && (
-                <p className="inline-flex items-center gap-2 text-[#AAA49A]">
-                  <Database className="h-3.5 w-3.5 shrink-0 text-[#FFD000]" aria-hidden="true" />
-                  <span>
-                    Development placeholder — live slot count activates once database &amp; payment
-                    webhook are connected.
-                  </span>
-                </p>
-              )}
-
               {allocation.status === 'loading' && (
                 <p className="inline-flex items-center gap-2 text-[#AAA49A]">
                   <RefreshCw className="h-3.5 w-3.5 animate-spin text-[#FFD000]" aria-hidden="true" />

@@ -194,12 +194,14 @@ export const HOMEPAGE_COPY = {
         'This is an extension of your software subscription, not a refund or compensation for trading losses. Trading capital remains at risk, and no trading profit is guaranteed.',
     },
     launchSlots: {
-      title: 'YOUR EARLY-ACCESS LAUNCH SLOTS',
-      subheadline: 'ONLY 20 LAUNCH SUBSCRIPTIONS AVAILABLE!',
-      body: "We're opening just 20 early-access subscription places for the GOLD TITAN launch. Once all 20 places have been claimed, the introductory launch offer will close.",
+      // User-directed override wording ('YOUR EARLY-ACCESS LAUNCH SLOTS' overline removed)
+      subheadline: 'ONLY 20 SLOTS AVAILABLE!',
+      // User-directed override wording (CHRISTMAS OFFER)
+      body: "We're opening just 20 access subscription spots for the CHRISTMAS OFFER. Once all 20 places have been claimed, the offer will close.",
       remainingSuffix: '/ 20 SLOTS REMAINING',
       claimedSuffix: 'SLOTS CLAIMED',
-      cta: 'CLAIM YOUR SUBSCRIPTION',
+      // User-directed override wording
+      cta: 'GET YOUR SPOT NOW',
     },
     // Customer-facing promotional terms preserved verbatim; internal editorial instruction
     // ("This draft assumes the discounts cannot be combined; confirm this before publication.")

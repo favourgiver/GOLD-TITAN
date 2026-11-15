@@ -54,28 +54,15 @@ export const HOMEPAGE_COPY = {
     heading: "Your Life Shouldn't Revolve Around Watching Forex Charts.",
     intro:
       'Gold trading can demand a lot of your time and attention. Between monitoring price movements, analysing charts and waiting for trading opportunities, it can become difficult to balance trading with everything else happening in your life.',
-    items: [
-      {
-        title: '01. Constant Chart Monitoring',
-        body: 'Tired of spending hours in front of your computer, watching every movement of the gold market?',
-      },
-      {
-        title: '02. Limited Time',
-        body: "You have work, business, studies and personal commitments. You can't always be available to monitor the market.",
-      },
-      {
-        title: '03. Emotional Trading Decisions',
-        body: 'Fear, impatience and impulsive decisions can get in the way of following a trading strategy.',
-      },
-      {
-        title: '04. Missed Trading Opportunities',
-        body: "While you're away from your charts, the market continues moving. Manual trading requires your attention and availability.",
-      },
+    // User-directed override: pain points as a plain X-marked left-side list
+    painPoints: [
+      'Constantly Monitoring Charts',
+      'Limited Time As You Have Other Things To Do',
+      'You Make Emotional Trading Decisions',
+      'Missing Trading Opportunities',
     ],
-    closing: [
-      'What if you could automate your gold-trading routine instead of manually handling every trading opportunity?',
-      "You don't necessarily need more time in front of your charts. You need the right tools to make your trading routine more convenient.",
-    ],
+    closing:
+      'Gold Titan analyses the gold market, finds the best entry, take profit and stop loss & takes the trade without emotions while managing risks.',
   },
 
   section3Solution: {

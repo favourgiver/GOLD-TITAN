@@ -153,7 +153,7 @@ export const HOMEPAGE_COPY = {
   },
 
   section7Pricing: {
-    overline: 'Pricing, bonuses and launch availability',
+    overline: 'Pricing, bonuses and availability',
     heading: 'Get Started with GOLD TITAN for Just $50.',
     // User-directed override wording
     intro:
@@ -186,7 +186,7 @@ export const HOMEPAGE_COPY = {
         { term: '6 months', termMonths: 6 as const, standard: '$300', discounted: '$240', savings: '$60' },
       ],
     },
-    launchDetailsHeading: 'Bonus access and launch availability',
+    detailsHeading: 'Bonus access and availability',
     bonus03: {
       // User-directed override title
       title: 'GUARANTEE',
@@ -196,7 +196,7 @@ export const HOMEPAGE_COPY = {
       disclaimer:
         'This is an extension of your software subscription, not a refund or compensation for trading losses. Trading capital remains at risk, and no trading profit is guaranteed.',
     },
-    launchSlots: {
+    slots: {
       // User-directed override wording ('YOUR EARLY-ACCESS LAUNCH SLOTS' overline removed)
       subheadline: 'ONLY 20 SLOTS AVAILABLE!',
       // User-directed override wording (CHRISTMAS OFFER)

@@ -8,7 +8,7 @@ interface LaunchSlotsSectionProps {
 }
 
 export function LaunchSlotsSection({ allocation }: LaunchSlotsSectionProps) {
-  const { launchSlots } = HOMEPAGE_COPY.section7Pricing;
+  const { slots } = HOMEPAGE_COPY.section7Pricing;
   const isAllocationFull = allocation.status === 'full';
 
   const remainingDisplay =
@@ -34,8 +34,8 @@ export function LaunchSlotsSection({ allocation }: LaunchSlotsSectionProps) {
 
   return (
     <section
-      id="launch-slots"
-      aria-labelledby="launch-slots-heading"
+      id="slots"
+      aria-labelledby="slots-heading"
       className="relative scroll-mt-20 border-t border-[#FFD000]/16 bg-[#0B0A08] py-20 sm:py-24 lg:py-32"
     >
       {/* Slow randomly-drifting golden gradient backdrop, kept under this section's content */}
@@ -53,16 +53,16 @@ export function LaunchSlotsSection({ allocation }: LaunchSlotsSectionProps) {
         <div className="rounded-3xl border border-[#FFD000]/35 bg-gradient-to-b from-[#171610] to-[#0E0D0A] p-7 sm:p-10 lg:p-12">
           <div className="text-center">
             <h2
-              id="launch-slots-heading"
+              id="slots-heading"
               className="mt-3 text-[1.95rem] sm:text-[2.5rem] lg:text-[2.8rem] font-semibold leading-[1.08] tracking-[-0.025em] text-[#F5F2EA]"
             >
-              {launchSlots.subheadline}
+              {slots.subheadline}
             </h2>
             <p className="mx-auto mt-4 max-w-[650px] text-[16px] leading-[1.68] text-[#B8B2A7]">
               {(() => {
                 // User-directed yellow accent for 'CHRISTMAS OFFER'
                 const accent = 'CHRISTMAS OFFER';
-                const [before, ...rest] = launchSlots.body.split(accent);
+                const [before, ...rest] = slots.body.split(accent);
                 return (
                   <>
                     {before}
@@ -74,7 +74,7 @@ export function LaunchSlotsSection({ allocation }: LaunchSlotsSectionProps) {
             </p>
           </div>
 
-          {/* Authoritative Launch-Slot Counter Readout */}
+          {/* Authoritative Slot Counter Readout */}
           <div
             role="status"
             aria-live="polite"
@@ -83,10 +83,10 @@ export function LaunchSlotsSection({ allocation }: LaunchSlotsSectionProps) {
             <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-3">
               <div className="font-mono text-xl sm:text-2xl font-bold tracking-[0.06em] text-[#F5F2EA]">
                 <span className="text-[#FFD000]">{remainingDisplay}</span>{' '}
-                <span>{launchSlots.remainingSuffix}</span>
+                <span>{slots.remainingSuffix}</span>
               </div>
               <div className="font-mono text-xs sm:text-sm font-semibold tracking-[0.1em] text-[#FDE047]">
-                <span>{claimedDisplay}</span> <span>{launchSlots.claimedSuffix}</span>
+                <span>{claimedDisplay}</span> <span>{slots.claimedSuffix}</span>
               </div>
             </div>
 
@@ -126,21 +126,21 @@ export function LaunchSlotsSection({ allocation }: LaunchSlotsSectionProps) {
               {allocation.status === 'loading' && (
                 <p className="inline-flex items-center gap-2 text-[#AAA49A]">
                   <RefreshCw className="h-3.5 w-3.5 animate-spin text-[#FFD000]" aria-hidden="true" />
-                  <span>Checking verified launch allocation…</span>
+                  <span>Checking verified slot allocation…</span>
                 </p>
               )}
 
               {allocation.status === 'live' && (
                 <p className="inline-flex items-center gap-2 text-[#FFD000]">
                   <span className="h-2 w-2 rounded-full bg-[#FFD000]" aria-hidden="true" />
-                  <span>Verified server-authoritative launch allocation</span>
+                  <span>Verified server-authoritative slot allocation</span>
                 </p>
               )}
 
               {allocation.status === 'full' && (
                 <p className="inline-flex items-center gap-2 font-medium text-[#FFD000]">
                   <Lock className="h-3.5 w-3.5 text-[#FFD000]" aria-hidden="true" />
-                  <span>All 20 launch subscription places have been claimed.</span>
+                  <span>All 20 subscription places have been claimed.</span>
                 </p>
               )}
 
@@ -174,7 +174,7 @@ export function LaunchSlotsSection({ allocation }: LaunchSlotsSectionProps) {
               }`}
             >
               <span>
-                {isAllocationFull ? 'LAUNCH ALLOCATION CLAIMED' : launchSlots.cta}
+                {isAllocationFull ? 'ALL 20 SLOTS CLAIMED' : slots.cta}
               </span>
               {!isAllocationFull && (
                 <ArrowUpRight className="h-4 w-4 stroke-[2.25]" aria-hidden="true" />

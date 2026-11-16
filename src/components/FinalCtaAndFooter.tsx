@@ -120,8 +120,8 @@ export function FinalCtaAndFooter() {
             <a href="#pricing" className="hover:text-[#FFD000] transition-colors">
               Pricing
             </a>
-            <a href="#launch-slots" className="hover:text-[#FFD000] transition-colors">
-              Launch Slots
+            <a href="#slots" className="hover:text-[#FFD000] transition-colors">
+              Slots
             </a>
             <a href="#faqs" className="hover:text-[#FFD000] transition-colors">
               FAQs

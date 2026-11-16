@@ -51,7 +51,7 @@ const logoWebpB64 = fs
   .readFileSync(path.join(rootDir, 'public/images/titan-screaming-logo.webp'))
   .toString('base64');
 const sealWebpB64 = fs
-  .readFileSync(path.join(rootDir, 'public/images/titan-launch-seal.webp'))
+  .readFileSync(path.join(rootDir, 'public/images/titan-seal.webp'))
   .toString('base64');
 const faviconPngB64 = fs
   .readFileSync(path.join(rootDir, 'public/favicon.png'))
@@ -91,12 +91,12 @@ const replacements = [
   ['/images/titan-screaming-logo.png', logoDataUri],
   ['images/titan-screaming-logo.webp', logoDataUri],
   ['images/titan-screaming-logo.png', logoDataUri],
-  ['./images/titan-launch-seal.webp', sealDataUri],
-  ['./images/titan-launch-seal.png', sealDataUri],
-  ['/images/titan-launch-seal.webp', sealDataUri],
-  ['/images/titan-launch-seal.png', sealDataUri],
-  ['images/titan-launch-seal.webp', sealDataUri],
-  ['images/titan-launch-seal.png', sealDataUri],
+  ['./images/titan-seal.webp', sealDataUri],
+  ['./images/titan-seal.png', sealDataUri],
+  ['/images/titan-seal.webp', sealDataUri],
+  ['/images/titan-seal.png', sealDataUri],
+  ['images/titan-seal.webp', sealDataUri],
+  ['images/titan-seal.png', sealDataUri],
 ];
 
 for (const [target, uri] of replacements) {

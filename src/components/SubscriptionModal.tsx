@@ -247,7 +247,7 @@ export function SubscriptionModal({
                 </p>
                 <p className="text-[#B8B2A7]">
                   Live payment processing is not yet connected. No payment has been charged and no
-                  launch slot has been claimed. Checkout activates once the payment provider,
+                  slot has been claimed. Checkout activates once the payment provider,
                   settlement currency, and promotional terms are configured on the server.
                 </p>
               </div>

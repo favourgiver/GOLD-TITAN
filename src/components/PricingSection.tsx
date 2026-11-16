@@ -136,12 +136,12 @@ export function PricingSection({ allocation }: PricingSectionProps) {
 
               <picture className="shrink-0">
                 <source
-                  srcSet={`${import.meta.env.BASE_URL}images/titan-launch-seal.webp`}
+                  srcSet={`${import.meta.env.BASE_URL}images/titan-seal.webp`}
                   type="image/webp"
                 />
                 <img
-                  src={`${import.meta.env.BASE_URL}images/titan-launch-seal.png`}
-                  alt="Precision-milled dark titanium and brushed gold octagonal launch seal"
+                  src={`${import.meta.env.BASE_URL}images/titan-seal.png`}
+                  alt="Precision-milled dark titanium and brushed gold octagonal seal"
                   width={1536}
                   height={1024}
                   loading="lazy"
@@ -263,7 +263,7 @@ export function PricingSection({ allocation }: PricingSectionProps) {
           </article>
         </div>
 
-        {/* BONUS 03 - ONE EXTRA MONTH ON US (Launch Slots moved into its own dedicated section) */}
+        {/* Slots moved into its own dedicated section */}
         <article className="mt-8 rounded-3xl border border-[#FFD000]/18 bg-[#111111] p-6 sm:p-8 lg:p-10">
           <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-12 lg:gap-10">
             <div className="lg:col-span-7">

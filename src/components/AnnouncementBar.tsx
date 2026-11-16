@@ -7,7 +7,7 @@ export function AnnouncementBar() {
   return (
     <div
       role="region"
-      aria-label="Launch announcement"
+      aria-label="Offer announcement"
       className="relative z-50 overflow-hidden border-b border-[#FFD000]/20 bg-[#0B0A08] py-2.5"
     >
       {/* Accessible single read for screen readers */}

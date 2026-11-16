@@ -1,0 +1,310 @@
+@import '@fontsource-variable/manrope';
+@import '@fontsource-variable/jetbrains-mono';
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Manrope Variable', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    monospace;
+
+  --color-obsidian: #070707;
+  --color-obsidian-deep: #090909;
+  --color-graphite: #111111;
+  --color-graphite-elevated: #151515;
+  --color-panel-warm: #161510;
+  --color-gold: #ffd000;
+  --color-champagne: #fde047;
+  --color-antique-gold: #ca8a04;
+  --color-warm-white: #f5f2ea;
+  --color-stone: #aaa49a;
+}
+
+@layer base {
+  html {
+    background-color: #070707;
+    color: #f5f2ea;
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: clip;
+  }
+
+  body {
+    background-color: #070707;
+    color: #f5f2ea;
+    overflow-x: clip;
+  }
+
+  :focus-visible {
+    outline: 2px solid #ffd000;
+    outline-offset: 3px;
+  }
+}
+
+/* Continuous infinite announcement bar marquee */
+@keyframes titan-marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.titan-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: titan-marquee 24s linear infinite;
+  will-change: transform;
+}
+
+.titan-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Vibrant yellow primary CTA with restrained, tasteful soft glow */
+.btn-gold-primary {
+  background: linear-gradient(135deg, #ffe44d 0%, #ffd000 55%, #f5be00 100%);
+  color: #070707;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    0 0 18px rgba(255, 208, 0, 0.34),
+    0 4px 18px -4px rgba(255, 208, 0, 0.28);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    filter 180ms ease;
+}
+
+.btn-gold-primary:hover {
+  filter: brightness(1.05);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.65),
+    0 0 24px rgba(255, 208, 0, 0.48),
+    0 6px 24px -4px rgba(255, 208, 0, 0.36);
+}
+
+.btn-gold-primary:active {
+  transform: translateY(1px);
+}
+
+/* Subtle yellow glow for secondary / outline buttons */
+.btn-outline-glow {
+  box-shadow: 0 0 14px rgba(255, 208, 0, 0.17);
+  transition:
+    box-shadow 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+.btn-outline-glow:hover {
+  box-shadow: 0 0 20px rgba(255, 208, 0, 0.3);
+}
+
+/* Subtle dark card border with yellow tint */
+.gold-hairline {
+  border-color: rgba(253, 224, 71, 0.15);
+}
+
+.gold-hairline-strong {
+  border-color: rgba(255, 208, 0, 0.32);
+}
+
+/* Architectural fine grid texture for technical surfaces */
+.titan-grid-bg {
+  background-image: linear-gradient(to right, rgba(253, 224, 71, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(253, 224, 71, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Continuous gentle floating motion for the hero visuals
+   (bonus-box opening choreography removed per user direction;
+   the box now just floats) */
+.titan-hero-float {
+  animation: titan-hero-float 5.5s ease-in-out 0s infinite;
+  will-change: transform;
+}
+
+@keyframes titan-hero-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .titan-hero-float {
+    animation: none;
+  }
+}
+
+/* Continuous product-strengths ticker band over the problem section,
+   tilted to +177° (i.e. -3°): left end sits lower, right end sits higher.
+   Band is slightly oversized so the rotated strip still covers the full
+   viewport width. */
+.titan-ticker-band {
+  width: 104vw;
+  margin-left: -2vw;
+  transform: rotate(-3deg);
+  will-change: transform;
+}
+
+.titan-ticker-track {
+  display: flex;
+  width: max-content;
+  /* 1.5x slower than the prior 44s loop */
+  animation: titan-marquee 66s linear infinite;
+  will-change: transform;
+}
+
+.titan-ticker-track:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .titan-ticker-track {
+    animation: none;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Section reveal: every section pops slowly into view each time it
+   enters the screen (re-triggers on every scroll pass, up or down)
+   ------------------------------------------------------------------ */
+.titan-reveal {
+  opacity: 0;
+  transform: translateY(28px) scale(0.985);
+  transition: opacity 1.05s ease-out, transform 1.05s ease-out;
+  will-change: opacity, transform;
+}
+
+.titan-reveal.titan-reveal-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .titan-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Cursor ring: a little yellow-outlined circle that follows the
+   pointer anywhere on the page; whatever sits inside the circle is
+   blurred (hidden on touch / reduced motion)
+   ------------------------------------------------------------------ */
+.titan-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 90;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid rgba(255, 208, 0, 0.9);
+  border-radius: 9999px;
+  pointer-events: none;
+  opacity: 0;
+  box-shadow: 0 0 10px rgba(255, 208, 0, 0.22);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .titan-cursor-ring {
+    display: none;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Ambient golden gradient background in slow random motion,
+   plus a subtle noise-grain overlay across the screen
+   ------------------------------------------------------------------ */
+/* Per-section golden gradient backdrop: absolutely fills its section and
+   sits UNDER the section's texts, boxes, characters and images (z-index 0,
+   content containers above it are positioned so they always paint on top) */
+.titan-ambient {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  mix-blend-mode: screen;
+}
+
+.titan-ambient-blob {
+  position: absolute;
+  width: 55vmax;
+  height: 55vmax;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(255, 208, 0, 0.11) 0%, rgba(255, 208, 0, 0.045) 38%, transparent 70%);
+  filter: blur(34px);
+  will-change: transform;
+}
+
+.titan-ambient-blob-a {
+  left: -14vmax;
+  top: -12vmax;
+  animation: titan-ambient-drift-a 47s ease-in-out infinite alternate;
+}
+
+.titan-ambient-blob-b {
+  right: -16vmax;
+  bottom: -14vmax;
+  animation: titan-ambient-drift-b 63s ease-in-out infinite alternate;
+}
+
+@keyframes titan-ambient-drift-a {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(34vw, 16vh, 0) scale(1.14);
+  }
+  66% {
+    transform: translate3d(9vw, 46vh, 0) scale(0.92);
+  }
+  100% {
+    transform: translate3d(46vw, 34vh, 0) scale(1.08);
+  }
+}
+
+@keyframes titan-ambient-drift-b {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1.05);
+  }
+  28% {
+    transform: translate3d(-38vw, -22vh, 0) scale(0.9);
+  }
+  61% {
+    transform: translate3d(-14vw, -48vh, 0) scale(1.12);
+  }
+  100% {
+    transform: translate3d(-48vw, -6vh, 0) scale(0.97);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .titan-ambient-blob {
+    animation: none;
+  }
+}
+
+/* Subtle film-grain noise laid over the whole screen */
+.titan-noise {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='titan-noise'><feTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23titan-noise)' opacity='0.6'/></svg>");
+  background-size: 220px 220px;
+}

@@ -2,7 +2,9 @@
  * Site-wide CTA destination: every call-to-action on the site opens this
  * WhatsApp conversation with a pre-filled message.
  */
-export const WHATSAPP_LINK = 'https://wa.me/message/HKQ4F6SRBNFNE1';
+// Phone-number click-to-chat format: this is the only wa.me format that carries
+// the pre-filled text (the wa.me/message/HKQ4F6SRBNFNE1 short link cannot).
+export const WHATSAPP_LINK = 'https://wa.me/2349160391748';
 
 export const WHATSAPP_DEFAULT_MESSAGE =
   'Hi! Favour, I want to get access to the GOLD TITAN bot trader';

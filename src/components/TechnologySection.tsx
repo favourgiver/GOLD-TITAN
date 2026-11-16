@@ -1,5 +1,6 @@
 import { ArrowUpRight } from 'lucide-react';
 import { HOMEPAGE_COPY } from '../content/homepageCopy';
+import { WHATSAPP_DEFAULT_URL } from '../lib/whatsapp';
 
 const SPEC_TAGS = ['$250 MIN'] as const;
 const SLOTS_TAG = '20 SLOTS';
@@ -83,7 +84,9 @@ export function TechnologySection() {
                   {section6Technology.slotsBody}
                 </p>
                 <a
-                  href="#pricing"
+                  href={WHATSAPP_DEFAULT_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="btn-gold-primary mt-6 inline-flex min-h-[48px] items-center justify-center gap-2.5 rounded-full px-7 py-3.5 text-[13px] font-bold tracking-[0.06em]"
                 >
                   <span>{section6Technology.cta}</span>

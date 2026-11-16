@@ -1,4 +1,5 @@
 import { HOMEPAGE_COPY } from '../content/homepageCopy';
+import { WHATSAPP_DEFAULT_URL } from '../lib/whatsapp';
 
 const REPEATS = [0, 1, 2, 3] as const;
 
@@ -19,7 +20,9 @@ export function AnnouncementBar() {
             {REPEATS.map((idx) => (
               <a
                 key={`${groupIndex}-${idx}`}
-                href="#pricing"
+                href={WHATSAPP_DEFAULT_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 tabIndex={groupIndex === 0 && idx === 0 ? 0 : -1}
                 className="inline-flex shrink-0 items-center gap-4 px-6 text-xs sm:text-[13px] font-semibold tracking-[0.02em] text-[#F5F2EA] hover:text-[#FFD000] transition-colors"
               >

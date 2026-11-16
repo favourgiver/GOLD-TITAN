@@ -1,15 +1,15 @@
 import { ArrowUpRight } from 'lucide-react';
 import { HOMEPAGE_COPY } from '../content/homepageCopy';
 import type { LaunchAllocationState } from '../lib/launchAllocation';
+import { buildWhatsAppMonthsUrl, openWhatsApp, WHATSAPP_DEFAULT_URL } from '../lib/whatsapp';
 
 export type PlanTermMonths = 1 | 2 | 3 | 6;
 
 interface PricingSectionProps {
   allocation: LaunchAllocationState;
-  onOpenSubscribeModal: (termMonths: PlanTermMonths) => void;
 }
 
-export function PricingSection({ allocation, onOpenSubscribeModal }: PricingSectionProps) {
+export function PricingSection({ allocation }: PricingSectionProps) {
   const { section7Pricing } = HOMEPAGE_COPY;
   const isAllocationFull = allocation.status === 'full';
 
@@ -87,7 +87,7 @@ export function PricingSection({ allocation, onOpenSubscribeModal }: PricingSect
               <button
                 type="button"
                 disabled={isAllocationFull}
-                onClick={() => onOpenSubscribeModal(1)}
+                onClick={() => openWhatsApp(WHATSAPP_DEFAULT_URL)}
                 className={`inline-flex min-h-[48px] w-full sm:w-auto items-center justify-center gap-2 rounded-full px-7 py-3 text-[13px] font-bold tracking-[0.06em] ${
                   isAllocationFull
                     ? 'cursor-not-allowed border border-[#FFD000]/15 bg-[#191815] text-[#AAA49A]'
@@ -198,7 +198,7 @@ export function PricingSection({ allocation, onOpenSubscribeModal }: PricingSect
                         <button
                           type="button"
                           disabled={isAllocationFull}
-                          onClick={() => onOpenSubscribeModal(row.termMonths)}
+                          onClick={() => openWhatsApp(buildWhatsAppMonthsUrl(row.termMonths))}
                           className="btn-outline-glow min-h-[36px] rounded-full border border-[#FFD000]/35 bg-[#181610] px-3.5 py-1 text-xs font-semibold text-[#F5F2EA] hover:border-[#FFD000] hover:text-[#FFD000] disabled:cursor-not-allowed disabled:opacity-50"
                         >
                           Select
@@ -252,7 +252,7 @@ export function PricingSection({ allocation, onOpenSubscribeModal }: PricingSect
                   <button
                     type="button"
                     disabled={isAllocationFull}
-                    onClick={() => onOpenSubscribeModal(row.termMonths)}
+                    onClick={() => openWhatsApp(buildWhatsAppMonthsUrl(row.termMonths))}
                     className="btn-outline-glow mt-3 min-h-[42px] w-full rounded-full border border-[#FFD000]/35 bg-[#181610] px-4 py-2 text-xs font-semibold text-[#F5F2EA] hover:border-[#FFD000] disabled:opacity-50"
                   >
                     Select {row.term}

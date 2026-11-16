@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { AnnouncementBar } from './components/AnnouncementBar';
 import { HeaderNav } from './components/HeaderNav';
 import { HeroSection } from './components/HeroSection';
@@ -6,25 +5,16 @@ import { ProblemSection } from './components/ProblemSection';
 import { SolutionSection } from './components/SolutionSection';
 import { HowItWorksSection } from './components/HowItWorksSection';
 import { TechnologySection } from './components/TechnologySection';
-import { PricingSection, type PlanTermMonths } from './components/PricingSection';
+import { PricingSection } from './components/PricingSection';
 import { LaunchSlotsSection } from './components/LaunchSlotsSection';
 import { FaqSection } from './components/FaqSection';
 import { FinalCtaAndFooter } from './components/FinalCtaAndFooter';
-import { SubscriptionModal } from './components/SubscriptionModal';
 import { Reveal } from './components/Reveal';
 import { CursorRing } from './components/CursorRing';
 import { useLaunchAllocation } from './lib/launchAllocation';
 
 export function App() {
   const allocation = useLaunchAllocation();
-  const [modalOpen, setModalOpen] = useState(false);
-  const [selectedPlanTerm, setSelectedPlanTerm] = useState<PlanTermMonths>(1);
-
-  const handleOpenSubscribeModal = (termMonths: PlanTermMonths) => {
-    setSelectedPlanTerm(termMonths);
-    setModalOpen(true);
-  };
-
   return (
     <div className="min-h-screen bg-[#070707] text-[#F5F2EA]">
       {/* Subtle noise grain (moving golden gradient backdrop lives inside each section, under its content) */}
@@ -57,16 +47,10 @@ export function App() {
           <TechnologySection />
         </Reveal>
         <Reveal>
-          <PricingSection
-            allocation={allocation}
-            onOpenSubscribeModal={handleOpenSubscribeModal}
-          />
+          <PricingSection allocation={allocation} />
         </Reveal>
         <Reveal>
-          <LaunchSlotsSection
-            allocation={allocation}
-            onOpenSubscribeModal={handleOpenSubscribeModal}
-          />
+          <LaunchSlotsSection allocation={allocation} />
         </Reveal>
         <Reveal>
           <FaqSection />
@@ -78,11 +62,6 @@ export function App() {
 
       <CursorRing />
 
-      <SubscriptionModal
-        isOpen={modalOpen}
-        initialTermMonths={selectedPlanTerm}
-        onClose={() => setModalOpen(false)}
-      />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { HOMEPAGE_COPY } from '../content/homepageCopy';
+import { WHATSAPP_DEFAULT_URL } from '../lib/whatsapp';
 import { BrandMark } from './BrandMark';
 
 export function HeaderNav() {
@@ -109,7 +110,9 @@ export function HeaderNav() {
 
         <div className="hidden lg:flex items-center gap-3">
           <a
-            href="#pricing"
+            href={WHATSAPP_DEFAULT_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="btn-gold-primary inline-flex min-h-[42px] items-center gap-2 rounded-full px-5 py-2.5 text-[12px] font-bold tracking-[0.06em]"
           >
             <span>{HOMEPAGE_COPY.nav.cta}</span>
@@ -166,7 +169,9 @@ export function HeaderNav() {
           </ul>
           <div className="mt-4 pt-4 border-t border-[#FFD000]/14">
             <a
-              href="#pricing"
+              href={WHATSAPP_DEFAULT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setMobileOpen(false)}
               className="btn-gold-primary flex min-h-[48px] w-full items-center justify-center gap-2 rounded-full px-6 py-3 text-[13px] font-bold tracking-[0.06em]"
             >

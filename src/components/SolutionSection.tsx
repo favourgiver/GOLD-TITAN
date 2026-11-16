@@ -1,5 +1,6 @@
 import { ArrowUpRight, CheckCircle2, Cpu } from 'lucide-react';
 import { HOMEPAGE_COPY } from '../content/homepageCopy';
+import { WHATSAPP_DEFAULT_URL } from '../lib/whatsapp';
 
 export function SolutionSection() {
   const { section3Solution } = HOMEPAGE_COPY;
@@ -103,7 +104,9 @@ export function SolutionSection() {
               {section3Solution.subCtaNote}
             </p>
             <a
-              href="#technology"
+              href={WHATSAPP_DEFAULT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-gold-primary inline-flex min-h-[46px] shrink-0 items-center justify-center gap-2 rounded-full px-6 py-3 text-[12.5px] font-bold tracking-[0.06em]"
             >
               <span>{section3Solution.cta}</span>

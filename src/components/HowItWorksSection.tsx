@@ -1,5 +1,6 @@
 import { ArrowUpRight } from 'lucide-react';
 import { HOMEPAGE_COPY } from '../content/homepageCopy';
+import { WHATSAPP_DEFAULT_URL } from '../lib/whatsapp';
 
 export function HowItWorksSection() {
   const { section4HowItWorks } = HOMEPAGE_COPY;
@@ -31,7 +32,9 @@ export function HowItWorksSection() {
 
           <div className="mt-9 flex justify-center">
             <a
-              href="#pricing"
+              href={WHATSAPP_DEFAULT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-gold-primary inline-flex min-h-[50px] items-center justify-center gap-2.5 rounded-full px-8 py-3.5 text-[13px] font-bold tracking-[0.06em]"
             >
               <span>{section4HowItWorks.cta}</span>

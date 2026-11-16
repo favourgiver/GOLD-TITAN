@@ -1,5 +1,6 @@
 import { ArrowUpRight, AlertTriangle } from 'lucide-react';
 import { HOMEPAGE_COPY } from '../content/homepageCopy';
+import { WHATSAPP_DEFAULT_URL } from '../lib/whatsapp';
 import { BrandMark } from './BrandMark';
 
 export function FinalCtaAndFooter() {
@@ -62,7 +63,9 @@ export function FinalCtaAndFooter() {
 
               <div className="mt-9 flex justify-center">
                 <a
-                  href="#pricing"
+                  href={WHATSAPP_DEFAULT_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="btn-gold-primary inline-flex min-h-[52px] items-center justify-center gap-2.5 rounded-full px-8 py-4 text-[13px] font-bold tracking-[0.06em]"
                 >
                   <span>{finalCta.cta}</span>

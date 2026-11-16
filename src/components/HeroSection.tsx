@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { HOMEPAGE_COPY } from '../content/homepageCopy';
+import { WHATSAPP_DEFAULT_URL } from '../lib/whatsapp';
 
 function usePrefersReducedMotion() {
   const [reduced, setReduced] = useState(false);
@@ -108,7 +109,9 @@ export function HeroSection() {
             {/* Glowing Primary CTA (secondary 'DISCOVER HOW IT WORKS' button removed per user direction) */}
             <div className="mt-9 flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3.5">
               <a
-                href="#pricing"
+                href={WHATSAPP_DEFAULT_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-gold-primary inline-flex min-h-[50px] items-center justify-center gap-2.5 rounded-full px-7 py-3.5 text-[13px] font-bold tracking-[0.06em]"
               >
                 <span>{section1Hero.primaryCta}</span>

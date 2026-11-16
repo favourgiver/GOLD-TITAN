@@ -1,17 +1,13 @@
 import { AlertCircle, ArrowUpRight, Lock, RefreshCw } from 'lucide-react';
 import { HOMEPAGE_COPY } from '../content/homepageCopy';
 import type { LaunchAllocationState } from '../lib/launchAllocation';
-import type { PlanTermMonths } from './PricingSection';
+import { openWhatsApp, WHATSAPP_DEFAULT_URL } from '../lib/whatsapp';
 
 interface LaunchSlotsSectionProps {
   allocation: LaunchAllocationState;
-  onOpenSubscribeModal: (termMonths: PlanTermMonths) => void;
 }
 
-export function LaunchSlotsSection({
-  allocation,
-  onOpenSubscribeModal,
-}: LaunchSlotsSectionProps) {
+export function LaunchSlotsSection({ allocation }: LaunchSlotsSectionProps) {
   const { launchSlots } = HOMEPAGE_COPY.section7Pricing;
   const isAllocationFull = allocation.status === 'full';
 
@@ -170,7 +166,7 @@ export function LaunchSlotsSection({
             <button
               type="button"
               disabled={isAllocationFull}
-              onClick={() => onOpenSubscribeModal(1)}
+              onClick={() => openWhatsApp(WHATSAPP_DEFAULT_URL)}
               className={`inline-flex min-h-[52px] w-full sm:w-auto sm:min-w-[290px] items-center justify-center gap-2.5 rounded-full px-8 py-4 text-[13px] font-bold tracking-[0.06em] ${
                 isAllocationFull
                   ? 'cursor-not-allowed border border-[#FFD000]/15 bg-[#191815] text-[#AAA49A]'
